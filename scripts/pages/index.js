@@ -24,17 +24,20 @@
         // et bien retourner le tableau photographers seulement une fois récupéré
         return ({
             photographers: [...photographers, ...photographers, ...photographers]}) */
-        
-        fetch("data/photographers.json")
-            .then(photographersFile => photographersFile.json())
-            .then(data => console.log(data));
-        
 
-
+            const data = await fetch("data/photographers.json")
+            if(data.ok == true){
+                return data.json();
+            }
+            else{
+                throw new Error("Erreur")
+            }
 
     }
 
-    async function displayData(photographers) {
+    
+
+   /* async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
         photographers.forEach((photographer) => {
@@ -42,13 +45,13 @@
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
-    };
+    };*/
 
     async function init() {
         // Récupère les datas des photographes
        // const { photographers } = await getPhotographers();
-        let photographers = await getPhotographers();
-        displayData(photographers);
+        getPhotographers().then(photographersFile => console.log(photographersFile))
+        //displayData(photographers);
     
     };
     
