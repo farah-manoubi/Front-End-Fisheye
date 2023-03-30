@@ -1,7 +1,7 @@
     async function getPhotographers() {
         // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
         // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        let photographers = [
+       /* let photographers = [
             {
                 "name": "Ma data test",
                 "id": 1,
@@ -23,7 +23,15 @@
         ]
         // et bien retourner le tableau photographers seulement une fois récupéré
         return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+            photographers: [...photographers, ...photographers, ...photographers]}) */
+        
+        fetch("data/photographers.json")
+            .then(photographersFile => photographersFile.json())
+            .then(data => console.log(data));
+        
+
+
+
     }
 
     async function displayData(photographers) {
@@ -38,8 +46,10 @@
 
     async function init() {
         // Récupère les datas des photographes
-        const { photographers } = await getPhotographers();
+       // const { photographers } = await getPhotographers();
+        let photographers = await getPhotographers();
         displayData(photographers);
+    
     };
     
     init();
