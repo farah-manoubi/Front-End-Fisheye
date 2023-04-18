@@ -8,7 +8,7 @@
         const data = await result.json();
        
         const photograph = data.photographers.find(item => item.id == id);
-        const medias = data.media.find(item => item.photographerId == id);
+        const medias = data.media.filter(item => item.photographerId == id);
         console.log(data)
         console.log(photograph)
         console.log(medias)
@@ -19,3 +19,5 @@
         }
     }
     getPhotograph();
+
+    
