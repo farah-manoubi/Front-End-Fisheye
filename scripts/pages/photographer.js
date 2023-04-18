@@ -18,6 +18,20 @@
             medias
         }
     }
-    getPhotograph();
+
+    async function displayPhotograph(photographers) {
+        const photographSection = document.querySelector(".photograph-header"); 
+        const photographerModel = photographerFactory(photographers.photograph);
+        const userCardDOM = photographerModel.getUserCardDOM();
+        photographSection.appendChild(userCardDOM); 
+    }
+
+    async function initPhotograph() {
+        const photographers = await getPhotograph();
+
+        displayPhotograph(photographers);
+    }
+    
+    initPhotograph();
 
     
