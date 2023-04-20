@@ -22,7 +22,8 @@
     async function displayPhotograph(photographers) {
         const photographSection = document.querySelector(".photograph-header"); 
         const photographerModel = photographerFactory(photographers.photograph);
-        const userCardDOM = photographerModel.getUserCardDOM();
+        const userCardDOM = photographerModel.getProfilPhotographer();
+        console.log(userCardDOM);
         photographSection.appendChild(userCardDOM); 
     }
 

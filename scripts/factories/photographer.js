@@ -40,5 +40,42 @@ function photographerFactory(data) {
         
         return (article);
     }
-    return { name, id, city, country, tagline, price, picture, getUserCardDOM }
+
+    function getProfilPhotographer() {
+        const divContain = document.createElement( 'div' );
+        const divInfo = document.createElement( 'div' );
+        const h1 = document.createElement( 'h1' );
+        const h2City = document.createElement( 'h2' );
+        const h2Country = `, ${country}`;
+        const p = document.createElement( 'p' );
+
+        const buttonContact = document.querySelector( '.contactButton' );
+
+        const divPhoto = document.createElement( 'div' );
+        const imgPhotograph = document.createElement( 'img' );
+        imgPhotograph.setAttribute("src", picture);
+        imgPhotograph.setAttribute("alt", name);
+
+        divInfo.setAttribute("class", "info");
+        divPhoto.setAttribute("class", "picture");
+        divContain.setAttribute("class", "container");
+
+        h1.textContent = name;
+        h2City.textContent = city;
+        p.textContent = tagline;
+
+        divContain.append(divInfo, divPhoto);
+        h2City.insertAdjacentHTML('beforeend', h2Country);
+        divInfo.appendChild(h1);
+        divInfo.appendChild(h2City);
+        divInfo.appendChild(p);
+        divPhoto.appendChild(buttonContact);
+        divPhoto.appendChild(imgPhotograph);
+    
+        return (divContain);
+    }
+
+
+
+    return { name, id, city, country, tagline, price, picture, getUserCardDOM, getProfilPhotographer }
 }

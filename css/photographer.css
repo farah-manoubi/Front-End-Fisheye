@@ -6,8 +6,47 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    border: solid;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: solid green;
 }
 
+.info{
+    width: 30%;
+    border: solid blue;
+    padding-left: 10px;
+}
+
+.picture{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    border: solid orange;
+}
+
+.picture img{
+    height: 250px;
+    width: 250px;
+   margin-right: 10px;
+   
+    border-radius: 50%;
+}
+.contactButton{
+    border: solid red;
+    display: flex;
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;
