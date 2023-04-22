@@ -7,19 +7,19 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
-    border: solid;
+    
 }
 .container{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    border: solid green;
+    border: solid grey;
 }
 
 .info{
     width: 30%;
-    border: solid blue;
+   
     padding-left: 10px;
 }
 
@@ -29,18 +29,18 @@
     justify-content: center;
     align-items: center;
     height: 250px;
-    border: solid orange;
+    
 }
 
 .picture img{
     height: 250px;
     width: 250px;
-   margin-right: 10px;
-   
+    margin-right: 10px;
+    object-fit: cover;
     border-radius: 50%;
 }
 .contactButton{
-    border: solid red;
+   
     display: flex;
     width: 65%;
     justify-content: center;
