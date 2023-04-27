@@ -113,3 +113,8 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.photograph_media{
+    display: flex;
+    flex-wrap: wrap;
+}

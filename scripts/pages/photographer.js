@@ -27,12 +27,43 @@
         photographSection.appendChild(photographProfil); 
     }
 
+    
+    async function displayMedia(medias) {
+        const mediaSection = document.querySelector(".photograph_media");
+        //console.log(medias.medias);
+       
+        Array.from(medias).forEach((media) => {
+            
+            const mediaModel = mediaFactory(media);
+            const mediaDisplay = mediaModel.getMedia();
+            console.log(mediaDisplay);
+            mediaSection.appendChild(mediaDisplay);
+        });
+        
+        
+    }
+    
+
     async function initPhotograph() {
         const photographers = await getPhotograph();
+        
 
         displayPhotograph(photographers);
+      
     }
     
     initPhotograph();
+
+
+
+    async function initPhotographMedia() {
+        const medias = await getPhotograph();
+        
+
+        displayMedia(medias);
+      
+    }
+    
+    initPhotographMedia();
 
     
