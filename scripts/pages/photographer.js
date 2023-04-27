@@ -9,9 +9,7 @@
        
         const photograph = data.photographers.find(item => item.id == id);
         const medias = data.media.filter(item => item.photographerId == id);
-        console.log(data)
-        console.log(photograph)
-        console.log(medias)
+       
 
         return{
             photograph,
@@ -23,7 +21,7 @@
         const photographSection = document.querySelector(".photograph-header"); 
         const photographerModel = photographerFactory(photographers.photograph);
         const photographProfil = photographerModel.getProfilPhotographer();
-        console.log(photographProfil);
+        
         photographSection.appendChild(photographProfil); 
     }
 
@@ -31,24 +29,21 @@
     async function displayMedia(medias) {
         const mediaSection = document.querySelector(".photograph_media");
         //console.log(medias.medias);
-       
-        Array.from(medias).forEach((media) => {
-            
+        Array.from(medias.medias).forEach((media) => {
             const mediaModel = mediaFactory(media);
             const mediaDisplay = mediaModel.getMedia();
             console.log(mediaDisplay);
             mediaSection.appendChild(mediaDisplay);
         });
-        
-        
     }
     
-
+    
     async function initPhotograph() {
         const photographers = await getPhotograph();
-        
+        const medias = await getPhotograph();
 
         displayPhotograph(photographers);
+        displayMedia(medias);
       
     }
     
@@ -56,14 +51,6 @@
 
 
 
-    async function initPhotographMedia() {
-        const medias = await getPhotograph();
-        
-
-        displayMedia(medias);
-      
-    }
     
-    initPhotographMedia();
 
     
