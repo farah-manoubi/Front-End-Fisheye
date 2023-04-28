@@ -1,19 +1,45 @@
 function mediaFactory (data) {
-    const { id, photographerId, title, image, video, likes } = data;
-
-    const picture = `assets/media/${photographerId}/${image}`;
-    const recorder = `assets/media/${photographerId}/${video}`;
+    const { photographerId, title, image, video, likes } = data;
+   
     
-    function getMedia() {
+
+    const picture = `assets/media/images/${image}`;
+    const recorder = `assets/media/videos/${video}`;
+
+
+    function getMediaVideo(){
         const article = document.createElement('article');
-        const img = document.createElement('img');
         const tape = document.createElement('video');
         const source = document.createElement('source');
         const div = document.createElement('div');
         const h2 = document.createElement('h2');
         const p = document.createElement('p');
 
-        const teste = document.createElement('div');
+        h2.textContent = title;
+        p.textContent = likes;
+
+        tape.setAttribute("controls", "");
+        source.setAttribute("src", recorder);
+        source.setAttribute("type", "video/mp4");
+    
+
+        tape.appendChild(source);
+        article.appendChild(tape);
+        article.appendChild(div);
+        div.appendChild(h2);
+        div.appendChild(p); 
+       
+        return(article);
+   
+    }
+
+    
+    function getMediaImage() {
+        const article = document.createElement('article');
+        const img = document.createElement('img');
+        const div = document.createElement('div');
+        const h2 = document.createElement('h2');
+        const p = document.createElement('p');
 
         h2.textContent = title;
         p.textContent = likes;
@@ -21,25 +47,16 @@ function mediaFactory (data) {
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
 
-        tape.setAttribute("controls","");
-        source.setAttribute("src", recorder);
-        source.setAttribute("type", "video/mp4");
-
-
-
-
-        //console.log(teste);
-        tape.appendChild(source);
-       article.appendChild(img);
-       article.appendChild(tape);
-        //article.appendChild(teste);
+        article.appendChild(img);
         article.appendChild(div);
         div.appendChild(h2);
         div.appendChild(p);
-
         return(article);
 
     }
-    return{ id, photographerId, title, image, video, likes, getMedia };
+
+    
+
+    return{ photographerId, title, image, video, likes, getMediaVideo, getMediaImage };
 
 }

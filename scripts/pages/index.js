@@ -15,6 +15,7 @@
             photographersSection.appendChild(userCardDOM);
         });
         
+        
     };
    
 

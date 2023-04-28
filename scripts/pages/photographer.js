@@ -28,13 +28,25 @@
     
     async function displayMedia(medias) {
         const mediaSection = document.querySelector(".photograph_media");
-        //console.log(medias.medias);
-        Array.from(medias.medias).forEach((media) => {
+        console.log(medias.medias.filter(item => item.video));
+
+        
+        Array.from(medias.medias.filter(item => item.video)).forEach((media) => {
             const mediaModel = mediaFactory(media);
-            const mediaDisplay = mediaModel.getMedia();
-            console.log(mediaDisplay);
-            mediaSection.appendChild(mediaDisplay);
+            const mediaDisplayVideo = mediaModel.getMediaVideo();
+
+            mediaSection.append(mediaDisplayVideo);
+            console.log(mediaDisplayVideo);
+
         });
+
+        Array.from(medias.medias.filter(item => item.image)).forEach((media) => {
+            const mediaModel = mediaFactory(media);
+            const mediaDisplayImage = mediaModel.getMediaImage();
+            
+            mediaSection.append(mediaDisplayImage);
+            console.log(mediaDisplayImage);
+        }); 
     }
     
     
