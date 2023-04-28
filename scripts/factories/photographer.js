@@ -49,6 +49,7 @@ function photographerFactory(data) {
         const h2City = document.createElement( 'h2' );
         const h2Country = `, ${country}`;
         const p = document.createElement( 'p' );
+        const divPrice = document.createElement('div');
 
         const buttonContact = document.querySelector( '.contactButton' );
 
@@ -60,12 +61,14 @@ function photographerFactory(data) {
         divInfo.setAttribute("class", "info");
         divPhoto.setAttribute("class", "picture");
         divContain.setAttribute("class", "container");
+        divPrice.setAttribute("class", "encart");
 
         h1.textContent = name;
         h2City.textContent = city;
         p.textContent = tagline;
+        divPrice.textContent = `${price}€/jour`;
 
-        divContain.append(divInfo, divPhoto);
+        divContain.append(divInfo, divPhoto, divPrice);
         h2City.insertAdjacentHTML('beforeend', h2Country);
         divInfo.appendChild(h1);
         divInfo.appendChild(h2City);
