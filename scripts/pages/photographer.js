@@ -30,10 +30,9 @@
         const mediaSection = document.querySelector(".photograph_media");
         console.log(medias.medias.filter(item => item.video));
 
-        
         Array.from(medias.medias.filter(item => item.video)).forEach((media) => {
-            const mediaModel = mediaFactory(media);
-            const mediaDisplayVideo = mediaModel.getMediaVideo();
+            const mediaModelVideo = mediaFactory(media);
+            const mediaDisplayVideo = mediaModelVideo.getMediaVideo();
 
             mediaSection.append(mediaDisplayVideo);
             console.log(mediaDisplayVideo);
@@ -41,8 +40,8 @@
         });
 
         Array.from(medias.medias.filter(item => item.image)).forEach((media) => {
-            const mediaModel = mediaFactory(media);
-            const mediaDisplayImage = mediaModel.getMediaImage();
+            const mediaModelImage = mediaFactory(media);
+            const mediaDisplayImage = mediaModelImage.getMediaImage();
             
             mediaSection.append(mediaDisplayImage);
             console.log(mediaDisplayImage);
@@ -56,7 +55,6 @@
 
         displayPhotograph(photographers);
         displayMedia(medias);
-      
     }
     
     initPhotograph();

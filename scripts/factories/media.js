@@ -1,7 +1,5 @@
 function mediaFactory (data) {
     const { photographerId, title, image, video, likes } = data;
-   
-    
 
     const picture = `assets/media/images/${image}`;
     const recorder = `assets/media/videos/${video}`;
@@ -20,6 +18,7 @@ function mediaFactory (data) {
 
         h2.textContent = title;
         p.textContent = likes;
+
         i.setAttribute("class", "fa-solid fa-heart");
         i.setAttribute("aria-label", "likes");
 
@@ -27,18 +26,12 @@ function mediaFactory (data) {
         source.setAttribute("src", recorder);
         source.setAttribute("type", "video/mp4");
     
-        divLikes.appendChild(p);
-        divLikes.appendChild(i);
+        divLikes.append(p, i);
         tape.appendChild(source);
-        article.appendChild(tape);
-        article.appendChild(div);
-        div.appendChild(h2);
-        div.appendChild(divLikes);
-        
-       
-       
+        article.append(tape, div);
+        div.append(h2, divLikes);
+
         return(article);
-   
     }
 
     
@@ -47,26 +40,18 @@ function mediaFactory (data) {
         
         h2.textContent = title;
         p.textContent = likes;
+
         i.setAttribute("class", "fa-solid fa-heart");
         i.setAttribute("aria-label", "likes");
 
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
 
-
-        divLikes.appendChild(p);
-        divLikes.appendChild(i);
-        article.appendChild(img);
-        article.appendChild(div);
-        div.appendChild(h2);
-        div.appendChild(divLikes);
+        divLikes.append(p, i);
+        article.append(img, div);
+        div.append(h2, divLikes);
         
         return(article);
-
     }
-
-    
-
     return{ photographerId, title, image, video, likes, getMediaVideo, getMediaImage };
-
 }
