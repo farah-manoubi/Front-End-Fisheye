@@ -12,26 +12,46 @@
     <header>
       <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" role="img"></a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <div class="contactButton"><button type="button" id="ContactMe" class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
       </div>
 
       <div class="photograph_media"></div>
     </main>
-    <div id="contact_modal">
+
+    <div id="contact_modal" aria-hidden="true" role="dialog">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()">
         </header>
-				<form>
+
+				<form novalidate name="contactMe" id="contactMe" action="photographer.html" method="get" onsubmit="">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="firstName">Prénom</label>
+						<input type="text" id="firstName" name="firstName" minlength="2">
 					</div>
+
+          <div>
+						<label for="lastName">Nom</label>
+						<input type="text" id="lastName" name="lastName" minlength="2">
+					</div>
+
+          <div>
+						<label for="email">E-mail</label>
+						<input type="email" id="email" name="email">
+					</div>
+
+          <div>
+						<label for="message">Votre message</label>
+						<input type="text" id="message" name="message">
+					</div>
+
           <button class="contact_button">Envoyer</button>
 				</form>
+
+
 			</div>
 		</div>
     <script src="scripts/factories/photographer.js"></script>

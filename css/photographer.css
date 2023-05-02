@@ -208,14 +208,18 @@ form input {
     position: fixed;
     z-index: 5;
     bottom: 0;
-    right: 0;
+    right: 40px;
     width: 376px;
     height: 70px;
-    font-weight: 500;
-    font-size: 24px;
     background: #DB8876;
     border-radius: 5px;
-    text-align: right;
-    vertical-align: text-bottom;
-   
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.encart p{
+    font-weight: 500;
+    font-size: 24px;
+    margin-right: 20px;
 }

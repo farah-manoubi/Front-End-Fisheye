@@ -50,6 +50,7 @@ function photographerFactory(data) {
         const h2Country = `, ${country}`;
         const p = document.createElement( 'p' );
         const divPrice = document.createElement('div');
+        const prix = document.createElement('p');
 
         const buttonContact = document.querySelector( '.contactButton' );
 
@@ -66,8 +67,9 @@ function photographerFactory(data) {
         h1.textContent = name;
         h2City.textContent = city;
         p.textContent = tagline;
-        divPrice.textContent = `${price}€/jour`;
+        prix.textContent = `${price}€/jour`;
 
+        divPrice.appendChild(prix);
         divContain.append(divInfo, divPhoto, divPrice);
         h2City.insertAdjacentHTML('beforeend', h2Country);
         divInfo.appendChild(h1);
