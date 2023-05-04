@@ -14,7 +14,7 @@
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
-        <div class="contactButton"><button type="button" id="ContactMe" class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
+        <div class="contactButton"><button type="button" aria-label="Contact Me" class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
       </div>
 
       <div class="photograph_media"></div>
@@ -24,31 +24,31 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()">
+          <img src="assets/icons/close.svg"  id="close" aria-label="Close contact form" onclick="closeModal()">
         </header>
 
 				<form novalidate name="contactMe" id="contactMe" action="photographer.html" method="get" onsubmit="">
 					<div>
-						<label for="firstName">Prénom</label>
+						<label for="firstName" aria-label="firstName" aria-labelledby="firstName">Prénom</label>
 						<input type="text" id="firstName" name="firstName" minlength="2">
 					</div>
 
           <div>
-						<label for="lastName">Nom</label>
+						<label for="lastName" aria-label="lastName" aria-labelledby="lastName">Nom</label>
 						<input type="text" id="lastName" name="lastName" minlength="2">
 					</div>
 
           <div>
-						<label for="email">E-mail</label>
+						<label for="email" aria-labelledby="email">E-mail</label>
 						<input type="email" id="email" name="email">
 					</div>
 
           <div>
-						<label for="message">Votre message</label>
+						<label for="message" aria-label="Your message" aria-labelledby="message">Votre message</label>
 						<input type="text" id="message" name="message">
 					</div>
 
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" aria-label="Send">Envoyer</button>
 				</form>
 
 

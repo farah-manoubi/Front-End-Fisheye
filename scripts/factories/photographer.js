@@ -81,7 +81,5 @@ function photographerFactory(data) {
         return (divContain);
     }
 
-
-
-    return { name, id, city, country, tagline, price, picture, getUserCardDOM, getProfilPhotographer }
+    return { name, id, city, country, tagline, price, picture, getUserCardDOM, getProfilPhotographer}
 }
