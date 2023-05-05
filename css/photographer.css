@@ -1,6 +1,14 @@
 
 #contact_modal {
     display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color:rgba(196, 196, 196, 0.4);
 }
 
 .photograph-header {
@@ -90,28 +98,51 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 669px;
+    height: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    margin: 5% auto;
+    overflow: hidden;
+    position: relative;
 }
 
-.modal header {
+.header_modal{
+    width: 100%;
+}
+
+.namePhotographer{
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.modal header img {
+
+.namePhotographer img {
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
+.title h2 , p {
+    font-size: 55px;
     font-weight: normal;
-    text-align: center;
+    text-align: left;
+}
+
+.title{
+    margin-top: 20px;
+}
+
+
+.title h2{
+    margin-bottom: 1px;
+}
+
+.title p{
+    margin-top: 1px;
 }
 
 form {
@@ -206,7 +237,7 @@ form input {
 
 .encart{
     position: fixed;
-    z-index: 5;
+    z-index: 1;
     bottom: 0;
     right: 40px;
     width: 376px;
@@ -227,3 +258,4 @@ form input {
 #message{
     height: 170px;
 }
+
