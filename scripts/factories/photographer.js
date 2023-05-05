@@ -81,25 +81,16 @@ function photographerFactory(data) {
         return (divContain);
     }
 
-
     function modalNamePhotograph(){
         const namePhotograph = document.querySelector('p');
         const closeModal = document.querySelector('#close');
-        //const divName = document.createElement('div');
         const divName = document.querySelector('.title');
         const title = document.querySelector('.namePhotographer')
 
         namePhotograph.textContent = name;
 
         divName.appendChild(namePhotograph);
-
         title.append(divName, closeModal);
-
-        
-
-
-
-
 
         return (title);
     }

@@ -4,7 +4,7 @@ async function getNamePhotograph() {
     const data = await result.json();
     const photograph = data.photographers.find(item => item.id == id);
 
-        return photograph;
+    return photograph;
 }
 
 async function displayName(photographer) {
