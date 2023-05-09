@@ -46,7 +46,7 @@
             console.log(mediaDisplayImage);
         }); 
     }
-    
+
     async function initPhotograph() {
         const photographers = await getPhotograph();
         const medias = await getPhotograph();

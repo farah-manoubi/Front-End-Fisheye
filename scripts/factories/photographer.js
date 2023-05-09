@@ -82,17 +82,23 @@ function photographerFactory(data) {
     }
 
     function modalNamePhotograph(){
-        const namePhotograph = document.querySelector('p');
+        const namePhotograph = document.createElement('p');
         const closeModal = document.querySelector('#close');
         const divName = document.querySelector('.title');
         const title = document.querySelector('.namePhotographer');
+        const formulaire = document.querySelector("#contactMe");
+        const modalDiv = document.querySelector(".modal");
+        const headerModal = document.querySelector(".header_modal");
 
+        formulaire.setAttribute("action",`photographer.html?id=${id}`);
         namePhotograph.textContent = name;
 
         divName.appendChild(namePhotograph);
         title.append(divName, closeModal);
+        headerModal.appendChild(title);
+        modalDiv.append(headerModal, formulaire);
 
-        return (title);
+        return (modalDiv);
     }
 
     return { name, id, city, country, tagline, price, picture, getUserCardDOM, getProfilPhotographer, modalNamePhotograph}

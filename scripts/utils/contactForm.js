@@ -1,8 +1,9 @@
-async function getNamePhotograph() {
+  async function getNamePhotograph() {
     const id = new URL(location.href).searchParams.get("id");
     const result = await fetch("data/photographers.json");
     const data = await result.json();
     const photograph = data.photographers.find(item => item.id == id);
+    
 
     return photograph;
 }
@@ -32,19 +33,20 @@ const formulaire = document.getElementById("contactMe");
 const buttonSend = document.getElementById("btn");
 let formValid = false;
 
-const id = new URL(location.href).searchParams.get("id");
-formulaire.action = "photographer.html?id=" + id;
+/*const id = new URL(location.href).searchParams.get("id");
+formulaire.action = "photographer.html?id=" + id;*/
+
 
 const onOpenModal = () => {
-    mainSection.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('aria-hidden', 'false');
-    closeModalImg.focus();
+  mainSection.setAttribute('aria-hidden', 'true');
+  modal.setAttribute('aria-hidden', 'false');
+  closeModalImg.focus();
 }
 
 const onCloseModal = () => {
-    mainSection.setAttribute('aria-hidden', 'false');
-    modal.setAttribute('aria-hidden', 'true');
-    openModalButton.focus();
+  mainSection.setAttribute('aria-hidden', 'false');
+  modal.setAttribute('aria-hidden', 'true');
+  openModalButton.focus();
 }
 
 openModalButton.addEventListener("click", displayModal);
@@ -52,17 +54,15 @@ closeModalImg.addEventListener("click", closeModal);
 
 function displayModal() {
     
-    const modal = document.getElementById("contact_modal");
+  const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
-    
-    onOpenModal();
+  onOpenModal();
 }
 
 function closeModal() {
-    const id = new URL(location.href).searchParams.get("id");
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
-    onCloseModal();
+  const modal = document.getElementById("contact_modal");
+  modal.style.display = "none";
+  onCloseModal();
 }
 
 
@@ -73,7 +73,7 @@ formulaire.addEventListener("submit", (event) =>{
     validFormulaire(event);
 
     if(formValid== true){
-        formulaire.submit();
+      formulaire.submit();
     }
    
 });
