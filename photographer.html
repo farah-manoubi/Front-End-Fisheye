@@ -32,28 +32,29 @@
           </div>
         </header>
 
-				<form novalidate name="contactMe" id="contactMe" action="photographer.html" method="get" onsubmit="">
-					<div>
+				<form novalidate name="contactMe" id="contactMe" action="" method="get" onsubmit="return validFormulaire(event)">
+
+					<div class="formDataError" data-error="Veuillez entrer au moins 2 caractères pour le champs prénom" data-error-visible="">
 						<label for="firstName" aria-label="firstName" aria-labelledby="firstName">Prénom</label>
-						<input type="text" id="firstName" name="firstName" minlength="2">
+						<input type="text" id="firstName" name="firstName" minlength="2" class="text-control">
 					</div>
 
-          <div>
+          <div class="formDataError" data-error="Veuillez entrer au moins 2 caractères pour le champs nom" data-error-visible="">
 						<label for="lastName" aria-label="lastName" aria-labelledby="lastName">Nom</label>
-						<input type="text" id="lastName" name="lastName" minlength="2">
+						<input type="text" id="lastName" name="lastName" minlength="2" class="text-control">
 					</div>
 
-          <div>
+          <div class="formDataError" data-error="Veuillez entrer une adresse mail valide" data-error-visible="">
 						<label for="email" aria-labelledby="email">E-mail</label>
-						<input type="email" id="email" name="email">
+						<input type="email" id="email" name="email" class="text-control">
 					</div>
 
-          <div>
+          <div class="formDataError" data-error="Ne laissez pas ce champs vide" data-error-visible="">
 						<label for="message" aria-label="Your message" aria-labelledby="message">Votre message</label>
-						<input type="text" id="message" name="message">
+            <textarea wrap="soft" id="message" name="message" maxlength="400" class="text-control"></textarea>
 					</div>
 
-          <button class="contact_button" aria-label="Send">Envoyer</button>
+          <input class="contact_button" id="btn" type="submit" value="Envoyer" aria-label="Send">
 				</form>
 
 

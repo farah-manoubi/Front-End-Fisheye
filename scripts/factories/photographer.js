@@ -85,7 +85,7 @@ function photographerFactory(data) {
         const namePhotograph = document.querySelector('p');
         const closeModal = document.querySelector('#close');
         const divName = document.querySelector('.title');
-        const title = document.querySelector('.namePhotographer')
+        const title = document.querySelector('.namePhotographer');
 
         namePhotograph.textContent = name;
 

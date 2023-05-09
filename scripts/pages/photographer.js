@@ -25,7 +25,6 @@
         photographSection.appendChild(photographProfil); 
     }
 
-    
     async function displayMedia(medias) {
         const mediaSection = document.querySelector(".photograph_media");
         console.log(medias.medias.filter(item => item.video));
@@ -47,7 +46,6 @@
             console.log(mediaDisplayImage);
         }); 
     }
-    
     
     async function initPhotograph() {
         const photographers = await getPhotograph();
