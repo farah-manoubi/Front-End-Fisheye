@@ -1,4 +1,4 @@
-  async function getNamePhotograph() {
+  /*async function getNamePhotograph() {
     const id = new URL(location.href).searchParams.get("id");
     const result = await fetch("data/photographers.json");
     const data = await result.json();
@@ -9,7 +9,7 @@
 }
 
 async function displayName(photographer) {
-    const photographNameSection = document.querySelector(".header_modal");
+    const photographNameSection = document.querySelector("#contact_modal");
     const photographModel = photographerFactory(photographer);
     const user = photographModel.modalNamePhotograph();
 
@@ -22,7 +22,7 @@ async function initialisation() {
 };
 
 initialisation();
-
+*/
 
 
 const openModalButton = document.querySelector('.contactButton');
@@ -32,6 +32,7 @@ const closeModalImg = document.querySelector("#close");
 const formulaire = document.getElementById("contactMe");
 const buttonSend = document.getElementById("btn");
 let formValid = false;
+
 
 /*const id = new URL(location.href).searchParams.get("id");
 formulaire.action = "photographer.html?id=" + id;*/
@@ -64,8 +65,6 @@ function closeModal() {
   modal.style.display = "none";
   onCloseModal();
 }
-
-
 
 
 formulaire.addEventListener("submit", (event) =>{

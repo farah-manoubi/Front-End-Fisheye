@@ -47,12 +47,23 @@
         }); 
     }
 
+    async function displayNameModal(photographer) {
+        const photographNameSection = document.querySelector("#contact_modal");
+        const photographModel = photographerFactory(photographer.photograph);
+        const user = photographModel.modalNamePhotograph();
+    
+        photographNameSection.appendChild(user); 
+    }
+    
+
     async function initPhotograph() {
         const photographers = await getPhotograph();
         const medias = await getPhotograph();
+        const photographer = await getPhotograph();
 
         displayPhotograph(photographers);
         displayMedia(medias);
+        displayNameModal(photographer)
     }
     
     initPhotograph();
