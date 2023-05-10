@@ -282,3 +282,64 @@ textarea{
 .formDataError[data-error-visible="true"] .text-control {
     border: 2px solid #901C1C;
 }
+
+
+
+.lightbox{
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(196, 196, 196, 0.4);
+    z-index: 5;
+    
+    
+}
+
+
+
+
+
+.btnNext,
+.btnPrevious{
+  border: none;
+  position: fixed;
+  right: 0;
+  height: 100%;
+  margin-top: -14px;
+  z-index: 6;
+  cursor: pointer;
+}
+
+.btnPrevious{
+    right: auto;
+    left: 0;
+}
+
+.btnClose{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 7;
+}
+
+.containerBox img{
+    object-fit: cover;
+    width: 500px;
+    height: 500px;
+}
+
+.containerBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+

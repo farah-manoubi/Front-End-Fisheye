@@ -54,16 +54,36 @@
     
         photographNameSection.appendChild(user); 
     }
+
+
+    async function displayLightBox(mediasBox) {
+        const lightBoxSection = document.querySelector(".lightbox");
+       
+       
+            const mediaLightBox = mediaFactory(mediasBox.medias);
+           
+            const mediaSlide = mediaLightBox.lightBoxx();
+            lightBoxSection.appendChild(mediaSlide);
+            
+            
+            console.log(mediasBox.medias);
+        console.log(mediaLightBox);
+        console.log(lightBoxSection);
+           
+        
+    };
     
 
     async function initPhotograph() {
         const photographers = await getPhotograph();
         const medias = await getPhotograph();
         const photographer = await getPhotograph();
+        const mediasBox = await getPhotograph();
 
         displayPhotograph(photographers);
         displayMedia(medias);
-        displayNameModal(photographer)
+        displayNameModal(photographer);
+        displayLightBox(mediasBox);
     }
     
     initPhotograph();
