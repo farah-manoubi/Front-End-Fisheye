@@ -58,16 +58,17 @@
 			</div>
 		</div>
 
-    <div id="lightBoxID" class="lightbox">
-      <button class="btnClose" onclick="closeLightBox();"><i class="fa-solid fa-xmark"></i></button>
-      <button class="btnPrevious"><i class="fa-solid fa-arrow-left"></i></button>
-      <button class="btnNext"><i class="fa-solid fa-arrow-right"></i></button>
+    <div class="lightbox" id="myLightBox">
+      <span class="fa-solid fa-xmark" id="closeLgth" onclick="closeLightbox()"></span>
+      <span class="fa-solid fa-arrow-right" id="previous" onclick="browseSlide(1)"></span>
+      <span class="fa-solid fa-arrow-left" id="next" onclick="browseSlide(-1)"></span>
 
-      <div class="containerBox">
-       
+      <div class="containerLgth">
+        
+
       </div>
     </div>
-  
+    
 
 
 

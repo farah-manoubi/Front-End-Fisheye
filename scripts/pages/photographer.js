@@ -9,12 +9,13 @@
        
         const photograph = data.photographers.find(item => item.id == id);
         const medias = data.media.filter(item => item.photographerId == id);
-       
+        console.log(medias)
 
         return{
             photograph,
             medias
         }
+        
     }
 
     async function displayPhotograph(photographers) {
@@ -27,25 +28,39 @@
 
     async function displayMedia(medias) {
         const mediaSection = document.querySelector(".photograph_media");
+
+        const mediaSectionLgth = document.querySelector(".containerLgth");
+
         console.log(medias.medias.filter(item => item.video));
 
         Array.from(medias.medias.filter(item => item.video)).forEach((media) => {
             const mediaModelVideo = mediaFactory(media);
             const mediaDisplayVideo = mediaModelVideo.getMediaVideo();
+            const mediaDisplayVideoLgth = mediaModelVideo.getLightBoxVideo();
+
+           
 
             mediaSection.append(mediaDisplayVideo);
+            mediaSectionLgth.append(mediaDisplayVideoLgth);
             console.log(mediaDisplayVideo);
+            console.log(mediaDisplayVideoLgth);
+          
 
         });
 
         Array.from(medias.medias.filter(item => item.image)).forEach((media) => {
             const mediaModelImage = mediaFactory(media);
             const mediaDisplayImage = mediaModelImage.getMediaImage();
+            const mediaDisplayImageLgth = mediaModelImage.getLightBoxImage();
             
             mediaSection.append(mediaDisplayImage);
+            mediaSectionLgth.append(mediaDisplayImageLgth);
             console.log(mediaDisplayImage);
+            console.log(mediaDisplayImageLgth);
         }); 
     }
+
+
 
     async function displayNameModal(photographer) {
         const photographNameSection = document.querySelector("#contact_modal");
@@ -55,35 +70,20 @@
         photographNameSection.appendChild(user); 
     }
 
-
-    async function displayLightBox(mediasBox) {
-        const lightBoxSection = document.querySelector(".lightbox");
-       
-       
-            const mediaLightBox = mediaFactory(mediasBox.medias);
-           
-            const mediaSlide = mediaLightBox.lightBoxx();
-            lightBoxSection.appendChild(mediaSlide);
-            
-            
-            console.log(mediasBox.medias);
-        console.log(mediaLightBox);
-        console.log(lightBoxSection);
-           
-        
-    };
     
+
+
+   
 
     async function initPhotograph() {
         const photographers = await getPhotograph();
         const medias = await getPhotograph();
         const photographer = await getPhotograph();
-        const mediasBox = await getPhotograph();
-
+        
         displayPhotograph(photographers);
         displayMedia(medias);
         displayNameModal(photographer);
-        displayLightBox(mediasBox);
+       
     }
     
     initPhotograph();

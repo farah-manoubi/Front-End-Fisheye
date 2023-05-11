@@ -10,7 +10,8 @@ function mediaFactory (data) {
     const p = document.createElement('p');
     const i = document.createElement('i');
     const divLikes = document.createElement('div');
-    var n;
+    const index = document.createElement('div');
+    var n = 0;
 
 
     function getMediaVideo(){
@@ -23,16 +24,20 @@ function mediaFactory (data) {
         i.setAttribute("class", "fa-solid fa-heart");
         i.setAttribute("aria-label", "likes");
 
+        index.setAttribute("class", "lgthBox");
+
         article.setAttribute("class","openLightbox");
 
         tape.setAttribute("controls", "");
         source.setAttribute("src", recorder);
         source.setAttribute("type", "video/mp4");
-        source.setAttribute("onclick", "openLightBox();");
+        tape.setAttribute("onclick", `openLightbox();currentSlide(${n})`);
+        
     
         divLikes.append(p, i);
         tape.appendChild(source);
-        article.append(tape, div);
+        index.appendChild(tape);
+        article.append(index, div);
         div.append(h2, divLikes);
 
         return(article);
@@ -48,39 +53,53 @@ function mediaFactory (data) {
         i.setAttribute("class", "fa-solid fa-heart");
         i.setAttribute("aria-label", "likes");
 
+        index.setAttribute("class", "lgthBox");
+
         article.setAttribute("class","openLightbox");
 
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
-        img.setAttribute("onclick", "openLightBox();");
+        img.setAttribute("onclick",  `openLightbox();currentSlide(${n})`);
+        
 
         divLikes.append(p, i);
-        article.append(img, div);
+        index.appendChild(img);
+        article.append(index, div);
         div.append(h2, divLikes);
         
         return(article);
     }
 
-    function lightBoxx(){
-        const imageBox = document.createElement('img');
-        const videoBox = document.createElement('video');
-        const sourcevideoBox = document.createElement('source');
-        const divBox = document.querySelector('.containerBox');
+    function getLightBoxVideo(){ 
+        const mediaSlide = document.createElement('div');
+        const videoLgth = document.createElement('video');
+        const srcvideoLgth = document.createElement('source');
 
-        imageBox.setAttribute("src", picture);
-        videoBox.setAttribute("controls", "");
-        sourcevideoBox.setAttribute("src", recorder);
-        sourcevideoBox.setAttribute("type", "video/mp4");
-       
+        mediaSlide.setAttribute("class", "slideMedia");
+
+        videoLgth.setAttribute("controls", "");
+        srcvideoLgth.setAttribute("src", recorder);
+        srcvideoLgth.setAttribute("type", "video/mp4");
+
+        videoLgth.appendChild(srcvideoLgth);
+        mediaSlide.appendChild(videoLgth);
         
-
-        videoBox.appendChild(sourcevideoBox);
-        divBox.append(imageBox, videoBox);
-
-        return (divBox);
-
-
+        return(mediaSlide);
     }
 
-    return{ photographerId, title, image, video, likes, getMediaVideo, getMediaImage, lightBoxx };
+    function getLightBoxImage(){  
+        const mediaSlide = document.createElement('div');
+        const imageLgth = document.createElement('img');
+
+        mediaSlide.setAttribute("class", "slideMedia");
+
+        imageLgth.setAttribute("src", picture);
+        imageLgth.setAttribute("alt", title);
+
+        mediaSlide.appendChild(imageLgth);
+
+        return(mediaSlide);
+    }
+
+    return{ photographerId, title, image, video, likes, getMediaVideo, getMediaImage, getLightBoxVideo, getLightBoxImage};
 }
