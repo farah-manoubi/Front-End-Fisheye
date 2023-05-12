@@ -7,6 +7,8 @@ function closeLightbox(){
 }
 
 var indexOfSlide = 1;
+var slides = document.getElementsByClassName("slideMedia");
+
 displaySlides(indexOfSlide);
 
 function browseSlide(n){
@@ -19,7 +21,7 @@ function currentSlide(n){
 
 function displaySlides(n) {
     var i;
-    var slides = document.getElementsByClassName("slideMedia");
+    
     if (n > slides.length) {
         indexOfSlide = 1;
     }
@@ -30,5 +32,8 @@ function displaySlides(n) {
         slides[i].style.display = "none";
     }
 
-        slides[indexOfSlide-1].style.display = "block";
+    
+    slides[indexOfSlide-1].style.display = "block";
+    console.log(slides);
+        
 }

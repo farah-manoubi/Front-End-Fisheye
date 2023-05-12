@@ -11,7 +11,12 @@ function mediaFactory (data) {
     const i = document.createElement('i');
     const divLikes = document.createElement('div');
     const index = document.createElement('div');
-    var n = 0;
+   
+    for(var n=1; n < slides.length; n++){
+        
+        n = n+1;
+    }
+   
 
 
     function getMediaVideo(){
@@ -27,6 +32,8 @@ function mediaFactory (data) {
         index.setAttribute("class", "lgthBox");
 
         article.setAttribute("class","openLightbox");
+
+       
 
         tape.setAttribute("controls", "");
         source.setAttribute("src", recorder);
@@ -57,6 +64,8 @@ function mediaFactory (data) {
 
         article.setAttribute("class","openLightbox");
 
+
+        
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
         img.setAttribute("onclick",  `openLightbox();currentSlide(${n})`);
@@ -74,7 +83,10 @@ function mediaFactory (data) {
         const mediaSlide = document.createElement('div');
         const videoLgth = document.createElement('video');
         const srcvideoLgth = document.createElement('source');
+        const titleVideo = document.createElement('p');
 
+        titleVideo.textContent = title;
+        titleVideo.setAttribute("class", "caption");
         mediaSlide.setAttribute("class", "slideMedia");
 
         videoLgth.setAttribute("controls", "");
@@ -82,7 +94,7 @@ function mediaFactory (data) {
         srcvideoLgth.setAttribute("type", "video/mp4");
 
         videoLgth.appendChild(srcvideoLgth);
-        mediaSlide.appendChild(videoLgth);
+        mediaSlide.append(videoLgth, titleVideo);
         
         return(mediaSlide);
     }
@@ -90,13 +102,16 @@ function mediaFactory (data) {
     function getLightBoxImage(){  
         const mediaSlide = document.createElement('div');
         const imageLgth = document.createElement('img');
+        const titleImage = document.createElement('p');
 
+        titleImage.textContent = title;
+        titleImage.setAttribute("class", "caption");
         mediaSlide.setAttribute("class", "slideMedia");
 
         imageLgth.setAttribute("src", picture);
         imageLgth.setAttribute("alt", title);
 
-        mediaSlide.appendChild(imageLgth);
+        mediaSlide.append(imageLgth, titleImage);
 
         return(mediaSlide);
     }

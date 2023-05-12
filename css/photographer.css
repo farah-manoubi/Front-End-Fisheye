@@ -288,13 +288,13 @@ textarea{
     display: none;
     position: fixed;
     z-index: 5;
-    padding-top: 100px;
     left: 0;
     top: 0;
+    padding-top: 40px;
     width: 100%;
     height: 100%;
     overflow: auto;  
-    background-color:rgba(196, 196, 196, 0.4); 
+    background-color:white; 
 }
 
 .containerLgth{
@@ -302,49 +302,79 @@ textarea{
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    width: 90%;
+    width: 60%;
     max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #closeLgth {
-    color: white;
     position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
+    top: 40px;
+    padding: 0;
+    right: 0;
+    z-index: 10;
+    font-size: 42px;
     cursor: pointer;
+    color:#901C1C;
+    width: 18%;
 }
 
 .slideMedia {
+    width: 100%;
+    height: 100%;
     display: none;
 }
 
 .slideMedia img, 
 .slideMedia video{
     width: 100%;
-    height: 400px;
+    height: 600px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
-
-
+.caption{
+    margin-top: 1px;
+    font-size: 24px;
+    color:#901C1C;
+}
 
 #previous,
 #next{
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: black;
-    font-weight: bold;
-    font-size: 50px;
+    font-size: 42px;
+    color:#901C1C;
 }
 
-#previous{
+.arrows{
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 50%;
+    height: 100px;
+}
+
+.arrowRight{
+    width: 18%;
+    height: 100px;
     right: 0;
+    display: flex;
+    align-items: center;
+    
+}
+
+.arrowLeft{
+    width: 18%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 

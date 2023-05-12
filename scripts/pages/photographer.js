@@ -42,10 +42,6 @@
 
             mediaSection.append(mediaDisplayVideo);
             mediaSectionLgth.append(mediaDisplayVideoLgth);
-            console.log(mediaDisplayVideo);
-            console.log(mediaDisplayVideoLgth);
-          
-
         });
 
         Array.from(medias.medias.filter(item => item.image)).forEach((media) => {
@@ -55,8 +51,6 @@
             
             mediaSection.append(mediaDisplayImage);
             mediaSectionLgth.append(mediaDisplayImageLgth);
-            console.log(mediaDisplayImage);
-            console.log(mediaDisplayImageLgth);
         }); 
     }
 
