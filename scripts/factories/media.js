@@ -12,7 +12,7 @@ function mediaFactory (data) {
     const divLikes = document.createElement('div');
     const index = document.createElement('div');
    
-    for(var n=1; n < slides.length; n++){
+    for(var n=0; n < slides.length; n++){
         
         n = n+1;
     }

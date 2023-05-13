@@ -72,7 +72,7 @@ formulaire.addEventListener("submit", (event) =>{
     validFormulaire(event);
 
     if(formValid== true){
-      formulaire.submit();
+      closeModal();
     }
    
 });

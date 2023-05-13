@@ -6,7 +6,7 @@ function closeLightbox(){
     document.getElementById("myLightBox").style.display = "none";
 }
 
-var indexOfSlide = 1;
+var indexOfSlide = 0;
 var slides = document.getElementsByClassName("slideMedia");
 
 displaySlides(indexOfSlide);
@@ -23,7 +23,7 @@ function displaySlides(n) {
     var i;
     
     if (n > slides.length) {
-        indexOfSlide = 1;
+        indexOfSlide = 0;
     }
     if (n < 1) {
         indexOfSlide = slides.length;
@@ -32,8 +32,13 @@ function displaySlides(n) {
         slides[i].style.display = "none";
     }
 
-    
-    slides[indexOfSlide-1].style.display = "block";
     console.log(slides);
+    console.log(indexOfSlide);
+    if(slides[indexOfSlide]){
+        slides[indexOfSlide-1].style.display = "block";
+    }
+    
+   
+
         
 }
