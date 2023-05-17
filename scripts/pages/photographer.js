@@ -54,8 +54,6 @@
         }); 
     }
 
-
-
     async function displayNameModal(photographer) {
         const photographNameSection = document.querySelector("#contact_modal");
         const photographModel = photographerFactory(photographer.photograph);
@@ -64,26 +62,58 @@
         photographNameSection.appendChild(user); 
     }
 
+
     
+    async function likeCount(likes){
+        const numberLike = document.querySelectorAll(".numberLike");
+        const boutonLike = document.getElementsByClassName("buttonLike");
+        
 
 
-   
+        for (var i = 0 ; i < boutonLike.length; i++) {
+            
+         
+
+        boutonLike[i].addEventListener("click", () =>{
+            var value = numberLike.innerHTML;
+            value++;
+
+            console.log(value);
+            numberLike.innerHTML += value;
+            console.log(numberLike.innerHTML += value);
+        })
+
+
+    }
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     async function initPhotograph() {
         const photographers = await getPhotograph();
         const medias = await getPhotograph();
         const photographer = await getPhotograph();
+
+        const likes = await getPhotograph();
         
         displayPhotograph(photographers);
         displayMedia(medias);
         displayNameModal(photographer);
+        likeCount(likes);
        
     }
     
     initPhotograph();
-
-
-
-    
-
-    

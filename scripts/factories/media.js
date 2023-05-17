@@ -11,6 +11,9 @@ function mediaFactory (data) {
     const i = document.createElement('i');
     const divLikes = document.createElement('div');
     const index = document.createElement('div');
+    const spanForLike = document.createElement('span');
+    const buttonLike = document.createElement('button');
+    
    
     for(var n=0; n < slides.length; n++){
         
@@ -24,14 +27,21 @@ function mediaFactory (data) {
         const source = document.createElement('source');
 
         h2.textContent = title;
-        p.textContent = likes;
+        spanForLike.textContent = likes;
 
         i.setAttribute("class", "fa-solid fa-heart");
         i.setAttribute("aria-label", "likes");
 
         index.setAttribute("class", "lgthBox");
 
+        spanForLike.setAttribute("class", "numberLike");
+
         article.setAttribute("class","openLightbox");
+
+        //buttonLike.setAttribute("onclick", "numberLikes()");
+        buttonLike.setAttribute("type", "button");
+        buttonLike.setAttribute("class", "buttonLike");
+
 
        
 
@@ -41,7 +51,8 @@ function mediaFactory (data) {
         tape.setAttribute("onclick", `openLightbox();currentSlide(${n})`);
         
     
-        divLikes.append(p, i);
+        buttonLike.appendChild(i);
+        divLikes.append(spanForLike, buttonLike);
         tape.appendChild(source);
         index.appendChild(tape);
         article.append(index, div);
@@ -55,23 +66,32 @@ function mediaFactory (data) {
         const img = document.createElement('img');
         
         h2.textContent = title;
-        p.textContent = likes;
+        spanForLike.textContent = likes;
 
         i.setAttribute("class", "fa-solid fa-heart");
         i.setAttribute("aria-label", "likes");
 
         index.setAttribute("class", "lgthBox");
 
+        spanForLike.setAttribute("class", "numberLike");
+
         article.setAttribute("class","openLightbox");
 
 
+        //buttonLike.setAttribute("onclick", "numberLikes()");
+        buttonLike.setAttribute("type", "button");
+        buttonLike.setAttribute("class", "buttonLike");
+
+    
+        
         
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
         img.setAttribute("onclick",  `openLightbox();currentSlide(${n})`);
         
 
-        divLikes.append(p, i);
+        buttonLike.appendChild(i);
+        divLikes.append(spanForLike, buttonLike);
         index.appendChild(img);
         article.append(index, div);
         div.append(h2, divLikes);

@@ -218,7 +218,7 @@ form input {
     color: #911C1C;
 }
 
-.photograph_media article div div p{
+.photograph_media article div div span{
 
     font-style: normal;
     font-weight: 400;
@@ -378,3 +378,7 @@ textarea{
 }
 
 
+.buttonLike{
+    border-style: none;
+    background-color: white;
+}
