@@ -52,6 +52,8 @@
             mediaSection.append(mediaDisplayImage);
             mediaSectionLgth.append(mediaDisplayImageLgth);
         }); 
+
+       
     }
 
     async function displayNameModal(photographer) {
@@ -65,40 +67,35 @@
 
     
     async function likeCount(likes){
+        const displaySumLike = document.querySelector('.encart');
+        const div = document.createElement('div');
+        const sumOfLike = document.createElement('p');
+        const i = document.createElement('i');
+        i.setAttribute("class", "fa-solid fa-heart");
+
+
+        const likeBtn =  Array.from(document.getElementsByClassName("buttonLike"));
         const numberLike = document.querySelectorAll(".numberLike");
-        const boutonLike = document.getElementsByClassName("buttonLike");
+           
+        likeBtn.forEach(btn => {
+            btn.addEventListener("click", () =>{ 
+                numberLike.forEach(like =>{
+                    var value = like.innerHTML;
+                    value++;
         
+                    
+                    like.innerHTML = value;
 
-
-        for (var i = 0 ; i < boutonLike.length; i++) {
-            
-         
-
-        boutonLike[i].addEventListener("click", () =>{
-            var value = numberLike.innerHTML;
-            value++;
-
-            console.log(value);
-            numberLike.innerHTML += value;
-            console.log(numberLike.innerHTML += value);
+                })  
+            })
         })
+        
+        
+        sumOfLike.textContent = likes.medias.map(item => item.likes).reduce((prev, curr) => prev + curr, 0);
 
-
+        div.append(sumOfLike, i);
+        displaySumLike.appendChild(div)
     }
-    
-    }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -236,20 +236,39 @@ form input {
     position: fixed;
     z-index: 1;
     bottom: 0;
-    right: 40px;
-    width: 376px;
+    right: 20px;
+    width: 300px;
     height: 70px;
     background: #DB8876;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    
 }
 
 .encart p{
     font-weight: 500;
     font-size: 24px;
     margin-right: 20px;
+    margin-left: 20px;
+}
+
+.encart div{
+   display: flex;
+   align-items: center;
+   width: 50%;
+   height: 70px;
+}
+
+.encart div p{
+    margin-right: 4px;
+}
+
+.encart div i{
+    color: black;
+    font-size: 1.25rem;
 }
 
 #message{
