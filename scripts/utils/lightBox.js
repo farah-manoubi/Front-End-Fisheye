@@ -6,39 +6,36 @@ function closeLightbox(){
     document.getElementById("myLightBox").style.display = "none";
 }
 
-var indexOfSlide = 0;
-var slides = document.getElementsByClassName("slideMedia");
+let indexOfSlide = 0;
+const slides = document.getElementsByClassName("slideMedia");
 
-displaySlides(indexOfSlide);
 
 function browseSlide(n){
     displaySlides(indexOfSlide += n);
 }
 
-function currentSlide(n){
-    displaySlides(indexOfSlide = n);
+function currentSlide(id){
+    let mediaId
+    const mediaIndex = Array.from(slides).findIndex(slide => {
+        return slide.dataset.mediaId == id;
+    })
+    console.log(mediaIndex);
+    displaySlides(mediaIndex);
 }
 
-function displaySlides(n) {
-    var i;
-    
-    if (n > slides.length) {
+function displaySlides(mediaIndex) {
+
+    indexOfSlide = mediaIndex;
+    if (mediaIndex > slides.length - 1) {
         indexOfSlide = 0;
     }
-    if (n < 1) {
-        indexOfSlide = slides.length;
+    if (mediaIndex < 0) {
+        indexOfSlide = slides.length - 1;
     }
-    for (i = 0; i < slides.length; i++) {
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-
-    console.log(slides);
-    console.log(indexOfSlide);
     if(slides[indexOfSlide]){
-        slides[indexOfSlide-1].style.display = "block";
+        slides[indexOfSlide].style.display = "block";
     }
-    
-   
-
-        
 }

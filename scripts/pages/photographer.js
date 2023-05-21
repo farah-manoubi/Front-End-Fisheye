@@ -72,24 +72,6 @@
         const sumOfLike = document.createElement('p');
         const i = document.createElement('i');
         i.setAttribute("class", "fa-solid fa-heart");
-
-
-        const likeBtn =  Array.from(document.getElementsByClassName("buttonLike"));
-        const numberLike = document.querySelectorAll(".numberLike");
-           
-        likeBtn.forEach(btn => {
-            btn.addEventListener("click", () =>{ 
-                numberLike.forEach(like =>{
-                    var value = like.innerHTML;
-                    value++;
-        
-                    
-                    like.innerHTML = value;
-
-                })  
-            })
-        })
-        
         
         sumOfLike.textContent = likes.medias.map(item => item.likes).reduce((prev, curr) => prev + curr, 0);
 

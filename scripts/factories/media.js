@@ -1,5 +1,5 @@
 function mediaFactory (data) {
-    const { photographerId, title, image, video, likes } = data;
+    const { photographerId, title, image, video, likes, id } = data;
 
     const picture = `assets/media/images/${image}`;
     const recorder = `assets/media/videos/${video}`;
@@ -13,18 +13,13 @@ function mediaFactory (data) {
     const index = document.createElement('div');
     const spanForLike = document.createElement('span');
     const buttonLike = document.createElement('button');
+
+
     
-   
-    for(var n=0; n < slides.length; n++){
-        
-        n = n+1;
-    }
-   
-
-
     function getMediaVideo(){
         const tape = document.createElement('video');
         const source = document.createElement('source');
+        tape.setAttribute("data-media-id", "media_"+id);
 
         h2.textContent = title;
         spanForLike.textContent = likes;
@@ -34,13 +29,16 @@ function mediaFactory (data) {
 
         index.setAttribute("class", "lgthBox");
 
-        spanForLike.setAttribute("class", "numberLike");
+        spanForLike.setAttribute("class", "numberLike_"+id);
 
         article.setAttribute("class","openLightbox");
 
-        //buttonLike.setAttribute("onclick", "numberLikes()");
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
+        buttonLike.addEventListener("click", (e) =>{
+            document.querySelector(".numberLike_"+id).textContent = likes + 1;
+         
+        })
 
 
        
@@ -48,7 +46,10 @@ function mediaFactory (data) {
         tape.setAttribute("controls", "");
         source.setAttribute("src", recorder);
         source.setAttribute("type", "video/mp4");
-        tape.setAttribute("onclick", `openLightbox();currentSlide(${n})`);
+        tape.addEventListener("click", (e) => {
+            currentSlide(id);
+            openLightbox();
+        })
         
     
         buttonLike.appendChild(i);
@@ -64,6 +65,7 @@ function mediaFactory (data) {
     
     function getMediaImage() { 
         const img = document.createElement('img');
+        img.setAttribute("data-media-id", "media_"+id);
         
         h2.textContent = title;
         spanForLike.textContent = likes;
@@ -73,21 +75,23 @@ function mediaFactory (data) {
 
         index.setAttribute("class", "lgthBox");
 
-        spanForLike.setAttribute("class", "numberLike");
+        spanForLike.setAttribute("class", "numberLike_"+id);
 
         article.setAttribute("class","openLightbox");
 
-
-        //buttonLike.setAttribute("onclick", "numberLikes()");
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
+        buttonLike.addEventListener("click", (e) =>{
+            document.querySelector(".numberLike_"+id).textContent = likes + 1;
+        
+        })
 
-    
-        
-        
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
-        img.setAttribute("onclick",  `openLightbox();currentSlide(${n})`);
+        img.addEventListener("click", (e) => {
+            currentSlide(id);
+            openLightbox();
+        })
         
 
         buttonLike.appendChild(i);
@@ -104,10 +108,15 @@ function mediaFactory (data) {
         const videoLgth = document.createElement('video');
         const srcvideoLgth = document.createElement('source');
         const titleVideo = document.createElement('p');
+       
 
         titleVideo.textContent = title;
         titleVideo.setAttribute("class", "caption");
+
         mediaSlide.setAttribute("class", "slideMedia");
+        mediaSlide.setAttribute("data-media-id", id);
+
+        
 
         videoLgth.setAttribute("controls", "");
         srcvideoLgth.setAttribute("src", recorder);
@@ -123,10 +132,16 @@ function mediaFactory (data) {
         const mediaSlide = document.createElement('div');
         const imageLgth = document.createElement('img');
         const titleImage = document.createElement('p');
+       
 
         titleImage.textContent = title;
         titleImage.setAttribute("class", "caption");
+
         mediaSlide.setAttribute("class", "slideMedia");
+        mediaSlide.setAttribute("data-media-id", id);
+
+       
+
 
         imageLgth.setAttribute("src", picture);
         imageLgth.setAttribute("alt", title);
@@ -136,5 +151,6 @@ function mediaFactory (data) {
         return(mediaSlide);
     }
 
-    return{ photographerId, title, image, video, likes, getMediaVideo, getMediaImage, getLightBoxVideo, getLightBoxImage};
+
+    return{ photographerId, title, image, video, likes, id, getMediaVideo, getMediaImage, getLightBoxVideo, getLightBoxImage};
 }

@@ -1,29 +1,3 @@
-  /*async function getNamePhotograph() {
-    const id = new URL(location.href).searchParams.get("id");
-    const result = await fetch("data/photographers.json");
-    const data = await result.json();
-    const photograph = data.photographers.find(item => item.id == id);
-    
-
-    return photograph;
-}
-
-async function displayName(photographer) {
-    const photographNameSection = document.querySelector("#contact_modal");
-    const photographModel = photographerFactory(photographer);
-    const user = photographModel.modalNamePhotograph();
-
-    photographNameSection.appendChild(user); 
-}
-
-async function initialisation() {
-    const photographer = await getNamePhotograph();
-    displayName(photographer);
-};
-
-initialisation();
-*/
-
 
 const openModalButton = document.querySelector('.contactButton');
 const mainSection = document.querySelector('#main');
@@ -32,10 +6,6 @@ const closeModalImg = document.querySelector("#close");
 const formulaire = document.getElementById("contactMe");
 const buttonSend = document.getElementById("btn");
 let formValid = false;
-
-
-/*const id = new URL(location.href).searchParams.get("id");
-formulaire.action = "photographer.html?id=" + id;*/
 
 
 const onOpenModal = () => {
@@ -126,8 +96,3 @@ function validFormulaire(event){
     formValid = true;
   }
 }
-
-
-
-
-
