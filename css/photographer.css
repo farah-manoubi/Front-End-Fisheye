@@ -401,3 +401,20 @@ textarea{
     border-style: none;
     background-color: white;
 }
+
+
+.sort{
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+.sort label,
+.sort option{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.sort select{
+    width: 170px;
+    margin-left: 10px;
+}
