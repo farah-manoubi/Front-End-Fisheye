@@ -1,5 +1,5 @@
 function mediaFactory (data) {
-    const { photographerId, title, image, video, likes, id } = data;
+    const { photographerId, title, image, video, likes, id, date } = data;
 
     const picture = `assets/media/images/${image}`;
     const recorder = `assets/media/videos/${video}`;
@@ -30,9 +30,16 @@ function mediaFactory (data) {
         index.setAttribute("class", "lgthBox");
 
         spanForLike.setAttribute("class", "numberLike_"+id);
+        
+
+        divLikes.setAttribute("class", "containerLike");
+        
+
+       
 
         article.setAttribute("class","openLightbox");
-
+        article.setAttribute("data-like", likes);
+        
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
         buttonLike.addEventListener("click", (e) =>{
@@ -76,8 +83,16 @@ function mediaFactory (data) {
         index.setAttribute("class", "lgthBox");
 
         spanForLike.setAttribute("class", "numberLike_"+id);
+       
+
+        divLikes.setAttribute("class", "containerLike");
+       
+
+        
 
         article.setAttribute("class","openLightbox");
+        article.setAttribute("data-like", likes);
+        
 
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
@@ -152,5 +167,5 @@ function mediaFactory (data) {
     }
 
 
-    return{ photographerId, title, image, video, likes, id, getMediaVideo, getMediaImage, getLightBoxVideo, getLightBoxImage};
+    return{ photographerId, title, image, video, likes, id, date, getMediaVideo, getMediaImage, getLightBoxVideo, getLightBoxImage};
 }

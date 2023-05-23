@@ -1,15 +1,14 @@
 
     async function getPhotograph() {  
         const id = new URL(location.href).searchParams.get("id");
-        console.log(id)
-
+       
         const result = await fetch("data/photographers.json");
-        console.log(result)
+        
         const data = await result.json();
        
         const photograph = data.photographers.find(item => item.id == id);
         const medias = data.media.filter(item => item.photographerId == id);
-        console.log(medias)
+        
 
         return{
             photograph,
@@ -31,7 +30,7 @@
 
         const mediaSectionLgth = document.querySelector(".containerLgth");
 
-        console.log(medias.medias.filter(item => item.video));
+       
 
         Array.from(medias.medias.filter(item => item.video)).forEach((media) => {
             const mediaModelVideo = mediaFactory(media);
@@ -79,7 +78,38 @@
         displaySumLike.appendChild(div)
     }
 
+    async function trieMedia(trier){
+        const select = document.getElementById("trie-select");
+        const options = document.querySelectorAll(".options");
+        const mediaSelected =document.getElementsByClassName("openLightbox");
+       
+        select.addEventListener("click", (e)=>{
 
+            
+            Array.from(mediaSelected).forEach(hide => hide.style.display ="none");
+           
+                
+                Array.from(options).forEach(option => {
+                    if(option.dataset.value == "popularité"){
+                        const test=  trier.medias.sort((a, b) => b.likes - a.likes);
+                        displayMedia(trier)
+                    }
+                })
+
+            
+                
+               /* if(option.dataset.value == "date"){
+                    const toDate = e => new Date(e).getTime();
+                    const byValue = (a,b) => b - a;
+                    const tabLike = trier.medias.map(item => item.date);
+                    console.log(tabLike.sort(toDate,byValue))
+
+                }*/
+                
+           
+        })
+    }
+       
 
     async function initPhotograph() {
         const photographers = await getPhotograph();
@@ -87,11 +117,13 @@
         const photographer = await getPhotograph();
 
         const likes = await getPhotograph();
+        const trier = await getPhotograph();
         
         displayPhotograph(photographers);
         displayMedia(medias);
         displayNameModal(photographer);
         likeCount(likes);
+        trieMedia(trier);
        
     }
     
