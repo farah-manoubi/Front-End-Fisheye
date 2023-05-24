@@ -79,33 +79,36 @@
     }
 
     async function trieMedia(trier){
-        const select = document.getElementById("trie-select");
+        const select = document.querySelector("select");
         const options = document.querySelectorAll(".options");
         const mediaSelected =document.getElementsByClassName("openLightbox");
+        
        
-        select.addEventListener("click", (e)=>{
-
-            
-            Array.from(mediaSelected).forEach(hide => hide.style.display ="none");
+        select.addEventListener("change", function(){
+           
+           
+           Array.from(mediaSelected).forEach(hide => hide.style.display ="none");
+               
+           
            
                 
-                Array.from(options).forEach(option => {
-                    if(option.dataset.value == "popularité"){
-                        const test=  trier.medias.sort((a, b) => b.likes - a.likes);
-                        displayMedia(trier)
-                    }
-                })
-
-            
+              Array.from(options).forEach(option => {
                 
-               /* if(option.dataset.value == "date"){
-                    const toDate = e => new Date(e).getTime();
-                    const byValue = (a,b) => b - a;
-                    const tabLike = trier.medias.map(item => item.date);
-                    console.log(tabLike.sort(toDate,byValue))
+                        if(this.selectedIndex == 1 && option.dataset.value == "popularité"){
+                            trier.medias.sort((a, b) => b.likes - a.likes);
+                            displayMedia(trier)
+                        }
+                        
 
-                }*/
-                
+                       if(this.selectedIndex == 2 && option.dataset.value == "date"){  
+                          console.log(trier.medias.sort((a,b) => (new Date(b.date).getTime() - new Date(a.date).getTime())));
+                           displayMedia(trier)
+                        }
+
+                        
+                    
+                    
+                })    
            
         })
     }
