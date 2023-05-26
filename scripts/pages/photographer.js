@@ -78,6 +78,8 @@
         displaySumLike.appendChild(div)
     }
 
+
+
     async function trieMedia(trier){
         const select = document.querySelector("select");
         const options = document.querySelectorAll(".options");
@@ -95,14 +97,19 @@
               Array.from(options).forEach(option => {
                 
                         if(this.selectedIndex == 1 && option.dataset.value == "popularité"){
-                            trier.medias.sort((a, b) => b.likes - a.likes);
-                            displayMedia(trier)
+                                trier.medias.sort((a, b) => b.likes - a.likes);
+                                displayMedia(trier); 
                         }
                         
 
                        if(this.selectedIndex == 2 && option.dataset.value == "date"){  
-                          console.log(trier.medias.sort((a,b) => (new Date(b.date).getTime() - new Date(a.date).getTime())));
-                           displayMedia(trier)
+                            trier.medias.sort((a,b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
+                            displayMedia(trier);
+                        }
+
+                        if(this.selectedIndex == 3 && option.dataset.value == "titre"){
+                            trier.medias.sort((a,b)=> a.title.localeCompare(b.title));
+                            displayMedia(trier);
                         }
 
                         
