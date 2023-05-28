@@ -32,7 +32,7 @@
 
        
 
-        Array.from(medias.medias.filter(item => item.video)).forEach((media) => {
+       /* Array.from(medias.medias.filter(item => item.video)).forEach((media) => {
             const mediaModelVideo = mediaFactory(media);
             const mediaDisplayVideo = mediaModelVideo.getMediaVideo();
             const mediaDisplayVideoLgth = mediaModelVideo.getLightBoxVideo();
@@ -50,7 +50,32 @@
             
             mediaSection.append(mediaDisplayImage);
             mediaSectionLgth.append(mediaDisplayImageLgth);
-        }); 
+        }); */
+
+        Array.from(medias.medias).forEach((media) => {
+
+
+            const mediaModel = mediaFactory(media);
+
+            let mediaDisplay ;
+            let mediaDisplayLgth;
+
+            if(media.image){
+                mediaDisplay = mediaModel.getMediaImage();
+                mediaDisplayLgth = mediaModel.getLightBoxImage();
+            }
+            else{
+                mediaDisplay = mediaModel.getMediaVideo();
+                mediaDisplayLgth = mediaModel.getLightBoxVideo();
+            }
+
+
+        
+           
+
+            mediaSection.append(mediaDisplay);
+            mediaSectionLgth.append(mediaDisplayLgth);
+        });
 
        
     }
@@ -89,7 +114,9 @@
         select.addEventListener("change", function(){
            
            
-           Array.from(mediaSelected).forEach(hide => hide.style.display ="none");
+           //Array.from(mediaSelected).forEach(hide => hide.style.display ="none");
+           const mediaContain = document.querySelector(".photograph_media");
+           mediaContain.innerHTML = "";
                
            
            
