@@ -13,7 +13,8 @@ function mediaFactory (data) {
     const index = document.createElement('div');
     const spanForLike = document.createElement('span');
     const buttonLike = document.createElement('button');
-
+    
+    
 
     
     function getMediaVideo(){
@@ -33,21 +34,23 @@ function mediaFactory (data) {
         
 
         divLikes.setAttribute("class", "containerLike");
+
+        div.setAttribute("class", "titleMedia");
         
 
-       
-
         article.setAttribute("class","openLightbox");
-        article.setAttribute("data-like", likes);
+       
         
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
         buttonLike.addEventListener("click", (e) =>{
             document.querySelector(".numberLike_"+id).textContent = likes + 1;
+            
+            
          
         })
 
-
+       
        
 
         tape.setAttribute("controls", "");
@@ -86,20 +89,24 @@ function mediaFactory (data) {
        
 
         divLikes.setAttribute("class", "containerLike");
+        div.setAttribute("class", "titleMedia");
        
 
         
 
         article.setAttribute("class","openLightbox");
-        article.setAttribute("data-like", likes);
+        
         
 
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
         buttonLike.addEventListener("click", (e) =>{
             document.querySelector(".numberLike_"+id).textContent = likes + 1;
+            
+           
         
         })
+        
 
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
@@ -165,7 +172,6 @@ function mediaFactory (data) {
 
         return(mediaSlide);
     }
-
 
     return{ photographerId, title, image, video, likes, id, date, getMediaVideo, getMediaImage, getLightBoxVideo, getLightBoxImage};
 }

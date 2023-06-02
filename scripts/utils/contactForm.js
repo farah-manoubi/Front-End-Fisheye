@@ -5,6 +5,10 @@ const modal = document.querySelector("#contact_modal");
 const closeModalImg = document.querySelector("#close");
 const formulaire = document.getElementById("contactMe");
 const buttonSend = document.getElementById("btn");
+let firstName = document.getElementById("firstName");
+let lastName = document.getElementById("lastName");
+let email = document.getElementById("email");
+let message = document.getElementById("message");
 let formValid = false;
 
 
@@ -43,18 +47,16 @@ formulaire.addEventListener("submit", (event) =>{
 
     if(formValid== true){
       closeModal();
+      console.log("Prénom: " +firstName.value);
+      console.log("Nom: " +lastName.value);
+      console.log("Adresse mail: " +email.value);
+      console.log("Message: " +message.value);
     }
    
 });
 
 function validFormulaire(event){
     let conditionValid = true;
-    
-    let firstName = document.getElementById("firstName");
-    let lastName = document.getElementById("lastName");
-    let email = document.getElementById("email");
-    let message = document.getElementById("message");
-
     var caractere = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,10}(?:\.[a-z]{10})?)$/i;
 
     // Vérifie si le prénom est vide ou s'il est inférieur à 2 caractères
@@ -64,6 +66,7 @@ function validFormulaire(event){
   }else{
     firstName.parentElement.setAttribute("data-error-visible", "");
   }
+  
   
   // Vérifie si le nom est vide ou s'il est inférieur à 2 caractères
   if(lastName.value == '' || lastName.value.length < 2){

@@ -51,6 +51,7 @@ function photographerFactory(data) {
         const p = document.createElement( 'p' );
         const divPrice = document.createElement('div');
         const prix = document.createElement('p');
+        const divImg = document.createElement('div');
 
         const buttonContact = document.querySelector( '.contactButton' );
 
@@ -63,6 +64,7 @@ function photographerFactory(data) {
         divPhoto.setAttribute("class", "picture");
         divContain.setAttribute("class", "container");
         divPrice.setAttribute("class", "encart");
+        divImg.setAttribute("class", "containImg");
 
         h1.textContent = name;
         h2City.textContent = city;
@@ -75,8 +77,8 @@ function photographerFactory(data) {
         divInfo.appendChild(h1);
         divInfo.appendChild(h2City);
         divInfo.appendChild(p);
-        divPhoto.appendChild(buttonContact);
-        divPhoto.appendChild(imgPhotograph);
+        divPhoto.append(buttonContact, divImg);
+        divImg.appendChild(imgPhotograph);
     
         return (divContain);
     }
