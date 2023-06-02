@@ -16,6 +16,7 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
+    width: 90%;
     
 }
 .container{
@@ -28,7 +29,7 @@
 }
 
 .info{
-    width: 40%;
+    width: 35%;
     padding-left: 25px;
    
 }
@@ -36,8 +37,8 @@
 .info h1{
     font-style: normal;
     font-weight: 400;
-    font-size: 50px;
-    line-height: 83px;
+    font-size: 40px;
+    line-height: 70px;
     color: #D3573C;
     margin-bottom: 0;
 }
@@ -60,27 +61,30 @@
 }
 
 .picture{
-    width: 60%;
+    width: 65%;
     display: flex;
     align-items: center;
     height: 250px;
-   
-    
+}
+.containImg{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.picture img{
+.containImg img{
     height: 250px;
     width: 250px; 
     object-fit: cover;
     border-radius: 50%;
-    margin-left: 145px;
+    
+    
 }
 .contactButton{
     display: flex;
-    width: 45%;
+    width: 50%;
     justify-content: center;
-   
-
 }
 .contact_button {
     font-size: 20px;
@@ -173,12 +177,22 @@ form input {
     border-radius: 5px;
 }
 
-.photograph_media{
+/*.photograph_media{
     display: grid;
     grid-template-columns: 4fr 1fr 4fr;
     gap: 20px;
     margin-top: 100px;
     margin-bottom: 100px;  
+}*/
+
+.photograph_media{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 30px;
+    padding: 0;
+    margin: 100px 0 0 100px;
+  
 }
 
 .photograph_media article{
@@ -186,46 +200,49 @@ form input {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 350px;
+    width: 30%; 
 }
 
 
 .photograph_media article video{
-    width: 350px;
+    width: 100%;
     height: 300px;
     border-radius: 5%;
     object-fit: cover;
 }
 
 .photograph_media article img{
-    width: 350px;
+    width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 5%;
 }
 
-.photograph_media article div {
+.titleMedia {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
-.photograph_media article div h2{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 31px;
-    color: #911C1C;
-}
-
-.photograph_media article div div span{
-
+.titleMedia h2{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
+    line-height: 31px;
+    color: #911C1C;
+    width: 80%;
+}
+
+.containerLike{
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
     line-height: 19px;
     color: #911C1C;
-    margin-right: 5px;
+    text-align: right;
+    width: 20%;
 }
 
 .fa-heart{
@@ -417,4 +434,54 @@ textarea{
 .sort select{
     width: 170px;
     margin-left: 10px;
+}
+
+@media (max-width: 1041px){
+    .photograph_media{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+
+    }
+    .photograph_media article{
+        width: 40%;
+    }
+    .encart{
+        width: 250px;
+        height: 70px;
+        left: 0;
+    }
+    
+    .encart p{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 992px){
+    .containImg img{
+        height: 200px;
+        width: 200px; 
+        object-fit: cover;
+        border-radius: 50%;  
+    }
+
+    .contact_button {
+        font-size: 15px;
+        width: 160px;
+        height: 60px;  
+    }
+    .info h1{
+        font-size: 30px;
+        line-height: 50px;
+    }
+    
+    .info h2{ 
+        font-size: 20px;   
+    }
+    
+    .info p{
+        font-size: 15px; 
+    }
 }
