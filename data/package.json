@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "lint": "eslint -c node_modules/my-awesome-ruleset/.eslint --max-warnings=0 .",
+        "type": "module"
+    }
+   
+}

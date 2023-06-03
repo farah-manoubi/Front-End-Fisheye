@@ -7,7 +7,6 @@ function mediaFactory (data) {
     const article = document.createElement('article');
     const div = document.createElement('div');
     const h2 = document.createElement('h2');
-    const p = document.createElement('p');
     const i = document.createElement('i');
     const divLikes = document.createElement('div');
     const index = document.createElement('div');
@@ -15,13 +14,11 @@ function mediaFactory (data) {
     const buttonLike = document.createElement('button');
     
     
-
-    
     function getMediaVideo(){
         const tape = document.createElement('video');
         const source = document.createElement('source');
         tape.setAttribute("data-media-id", "media_"+id);
-
+        
         h2.textContent = title;
         spanForLike.textContent = likes;
 
@@ -43,7 +40,7 @@ function mediaFactory (data) {
         
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
-        buttonLike.addEventListener("click", (e) =>{
+        buttonLike.addEventListener("click", () =>{
             document.querySelector(".numberLike_"+id).textContent = likes + 1;
             
             
@@ -56,7 +53,7 @@ function mediaFactory (data) {
         tape.setAttribute("controls", "");
         source.setAttribute("src", recorder);
         source.setAttribute("type", "video/mp4");
-        tape.addEventListener("click", (e) => {
+        tape.addEventListener("click", () => {
             currentSlide(id);
             openLightbox();
         })
@@ -100,7 +97,7 @@ function mediaFactory (data) {
 
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
-        buttonLike.addEventListener("click", (e) =>{
+        buttonLike.addEventListener("click", () =>{
             document.querySelector(".numberLike_"+id).textContent = likes + 1;
             
            
@@ -110,7 +107,7 @@ function mediaFactory (data) {
 
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
-        img.addEventListener("click", (e) => {
+        img.addEventListener("click", () => {
             currentSlide(id);
             openLightbox();
         })

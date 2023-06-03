@@ -63,7 +63,12 @@
         const sumOfLike = document.createElement('p');
         const i = document.createElement('i');
         i.setAttribute("class", "fa-solid fa-heart");
-        const idLikes = likes.medias.map(item => item.id);
+
+
+        sumOfLike.setAttribute("class", "totalLikes");
+        const idNumberLikes = likes.medias.map(item => item.id);
+        console.log(idNumberLikes);
+                
         const boutton = document.querySelectorAll(".buttonLike");
         console.log(boutton)
         
@@ -72,21 +77,44 @@
 
         sumOfLike.textContent = total;
         Array.from(boutton).forEach(btn =>{
-             btn.addEventListener("click", (e)=>{
+             btn.addEventListener("click", ()=>{
+                
+                    
+                    
                 sumOfLike.textContent = total++;
-                console.log(total++)
+                    
+
+
+                       
+                        
+                        
+                    
+                   
+
+                    
+
+                
+                    
+                
+                   
+                
+                
             })
         })
+
+        
+        
 
 
         div.append(sumOfLike, i);
         displaySumLike.appendChild(div)
     }
 
+
     async function trieMedia(trier){
         const select = document.querySelector("select");
         const options = document.querySelectorAll(".options");
-        const mediaSelected =document.getElementsByClassName("openLightbox");
+        
         
         select.addEventListener("change", function(){
             const mediaContain = document.querySelector(".photograph_media");
