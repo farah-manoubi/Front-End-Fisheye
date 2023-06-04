@@ -46,11 +46,14 @@ formulaire.addEventListener("submit", (event) =>{
     validFormulaire(event);
 
     if(formValid== true){
+      console.log(formValid)
       closeModal();
       console.log("Prénom: " +firstName.value);
       console.log("Nom: " +lastName.value);
       console.log("Adresse mail: " +email.value);
       console.log("Message: " +message.value);
+      event.target.reset();
+      formValid = false;
     }
    
 });
