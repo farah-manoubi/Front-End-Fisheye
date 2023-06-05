@@ -1,5 +1,6 @@
 
 const openModalButton = document.querySelector('.contactButton');
+const body = document.getElementsByTagName("body");
 const mainSection = document.querySelector('#main');
 const modal = document.querySelector("#contact_modal");
 const closeModalImg = document.querySelector("#close");
@@ -15,12 +16,14 @@ let formValid = false;
 const onOpenModal = () => {
   mainSection.setAttribute('aria-hidden', 'true');
   modal.setAttribute('aria-hidden', 'false');
+  //body.classList.add('noscroll');
   closeModalImg.focus();
 }
 
 const onCloseModal = () => {
   mainSection.setAttribute('aria-hidden', 'false');
   modal.setAttribute('aria-hidden', 'true');
+  //body.classList.remove('noscroll');
   openModalButton.focus();
 }
 
@@ -39,6 +42,12 @@ function closeModal() {
   modal.style.display = "none";
   onCloseModal();
 }
+
+closeModalImg.addEventListener("keydown", e =>{ 
+  if(e.which === 13){
+    closeModal();
+  } 
+})
 
 
 formulaire.addEventListener("submit", (event) =>{

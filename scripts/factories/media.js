@@ -51,12 +51,15 @@ function mediaFactory (data) {
        
 
         tape.setAttribute("controls", "");
+        tape.setAttribute("tabindex", "0");
+        tape.setAttribute("class", "openLgth");
         source.setAttribute("src", recorder);
         source.setAttribute("type", "video/mp4");
         tape.addEventListener("click", () => {
             currentSlide(id);
             openLightbox();
         })
+        
         
     
         buttonLike.appendChild(i);
@@ -107,6 +110,8 @@ function mediaFactory (data) {
 
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
+        img.setAttribute("tabindex", "0");
+        img.setAttribute("class", "openLgth");
         img.addEventListener("click", () => {
             currentSlide(id);
             openLightbox();

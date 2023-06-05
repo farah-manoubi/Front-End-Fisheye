@@ -1,10 +1,39 @@
+const main = document.querySelector('#main');
+const lgthContainer = document.querySelector("#myLightBox");
+const openLgthBox = document.querySelectorAll(".openLgth");
+const closeLgthBox = document.querySelector("#closeLgth");
+console.log(closeLgthBox)
+
+
+const onOpenLgth = () => {
+    main.setAttribute('aria-hidden', 'true');
+    lgthContainer.setAttribute('aria-hidden', 'false');
+    closeLgthBox.focus();
+    
+  }
+  
+  const onCloseLgth = () => {
+    main.setAttribute('aria-hidden', 'false');
+    lgthContainer.setAttribute('aria-hidden', 'true');
+    //openLgthBox.focus();
+    
+  }
+  
+  
+
+
+
 function openLightbox(){
-    document.getElementById("myLightBox").style.display = "block";
+    document.getElementById("myLightBox").style.display = "block"; 
+    onOpenLgth();
 }
 
 function closeLightbox(){
     document.getElementById("myLightBox").style.display = "none";
+    onCloseLgth();
 }
+
+
 
 let indexOfSlide = 0;
 const slides = document.getElementsByClassName("slideMedia");
@@ -39,3 +68,4 @@ function displaySlides(mediaIndex) {
         slides[indexOfSlide].style.display = "block";
     }
 }
+

@@ -15,6 +15,8 @@ function photographerFactory(data) {
 
         lien.setAttribute("href", url);
         lien.setAttribute("aria-label", name);
+
+        lien.setAttribute("tabindex", "0");
     
         const h2 = document.createElement( 'h2' );
         const h3City = document.createElement( 'h3' );
@@ -89,6 +91,14 @@ function photographerFactory(data) {
         const formulaire = document.querySelector("#contactMe");
         const modalDiv = document.querySelector(".modal");
         const headerModal = document.querySelector(".header_modal");
+        const modalAria = document.querySelector("#contact_modal");
+        const titleModal = document.querySelector(".contactezMoi");
+
+
+
+
+        modalAria.setAttribute("aria-labelledby", name);
+        titleModal.setAttribute("id", name);
 
         formulaire.setAttribute("action",`photographer.html?id=${id}`);
         namePhotograph.textContent = name;

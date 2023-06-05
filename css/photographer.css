@@ -114,6 +114,7 @@
     position: relative;
 }
 
+
 .header_modal{
     width: 100%;
 }
@@ -347,16 +348,22 @@ textarea{
 }
 
 #closeLgth {
+    font-size: 42px;
+    cursor: pointer;
+    color:#901C1C;
+    width: 50px;
+    border: none;
+    background-color: white;
+}
+#closeWidth{
     position: absolute;
     top: 40px;
     padding: 0;
     right: 0;
     z-index: 10;
-    font-size: 42px;
-    cursor: pointer;
-    color:#901C1C;
     width: 18%;
 }
+
 
 .slideMedia {
     width: 100%;
