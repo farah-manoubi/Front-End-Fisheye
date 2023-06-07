@@ -44,7 +44,7 @@ function closeModal() {
 }
 
 closeModalImg.addEventListener("keydown", e =>{ 
-  if(e.which === 13){
+  if(e.which === 13){  //32 pour la touche espace
     closeModal();
   } 
 })

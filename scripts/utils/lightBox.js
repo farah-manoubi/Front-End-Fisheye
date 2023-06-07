@@ -44,7 +44,6 @@ function browseSlide(n){
 }
 
 function currentSlide(id){
-    let mediaId
     const mediaIndex = Array.from(slides).findIndex(slide => {
         return slide.dataset.mediaId == id;
     })
@@ -68,4 +67,14 @@ function displaySlides(mediaIndex) {
         slides[indexOfSlide].style.display = "block";
     }
 }
+
+lgthContainer.addEventListener("keydown", e =>{ 
+    if(e.keyCode == '37'){
+        browseSlide(-1);
+    } 
+    else if(e.keyCode == '39'){
+        browseSlide(1);
+    }
+})
+
 
