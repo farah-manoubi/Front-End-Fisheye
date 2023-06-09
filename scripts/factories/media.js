@@ -59,6 +59,12 @@ function mediaFactory (data) {
             currentSlide(id);
             openLightbox();
         })
+        tape.addEventListener("keydown", e =>{
+            if(e.key == "Enter"){  //32 pour la touche espace
+                currentSlide(id);
+                openLightbox();
+              } 
+        })
         
         
     
@@ -115,6 +121,12 @@ function mediaFactory (data) {
         img.addEventListener("click", () => {
             currentSlide(id);
             openLightbox();
+        })
+        img.addEventListener("keydown", e =>{
+            if(e.key == "Enter"){  //32 pour la touche espace
+                currentSlide(id);
+                openLightbox();
+              } 
         })
         
 

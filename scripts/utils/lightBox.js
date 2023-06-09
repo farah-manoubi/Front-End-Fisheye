@@ -1,36 +1,17 @@
 const main = document.querySelector('#main');
 const lgthContainer = document.querySelector("#myLightBox");
-const openLgthBox = document.querySelectorAll(".openLgth");
-const closeLgthBox = document.querySelector("#closeLgth");
-console.log(closeLgthBox)
-
-
-const onOpenLgth = () => {
-    main.setAttribute('aria-hidden', 'true');
-    lgthContainer.setAttribute('aria-hidden', 'false');
-    closeLgthBox.focus();
-    
-  }
-  
-  const onCloseLgth = () => {
-    main.setAttribute('aria-hidden', 'false');
-    lgthContainer.setAttribute('aria-hidden', 'true');
-    //openLgthBox.focus();
-    
-  }
-  
-  
-
-
 
 function openLightbox(){
     document.getElementById("myLightBox").style.display = "block"; 
-    onOpenLgth();
+    main.setAttribute('aria-hidden', 'true');
+    lgthContainer.setAttribute('aria-hidden', 'false');
+    lgthContainer.focus();
 }
 
 function closeLightbox(){
     document.getElementById("myLightBox").style.display = "none";
-    onCloseLgth();
+    main.setAttribute('aria-hidden', 'false');
+    lgthContainer.setAttribute('aria-hidden', 'true');
 }
 
 
