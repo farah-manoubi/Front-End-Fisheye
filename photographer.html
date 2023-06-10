@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" role="img"></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"></a>
     </header>
     <main id="main" aria-hidden="false">
       <div class="photograph-header">
@@ -26,7 +26,6 @@
             <option class="options" data-value="titre">Titre</option>
           </select>
         </div>
-
       <div class="photograph_media"></div>
     </main>
 
@@ -37,7 +36,7 @@
             <div class="title">
               <h2 class="contactezMoi">Contactez-moi</h2>
             </div>
-            <img src="assets/icons/close.svg" id="close" aria-label="Close contact form" onclick="closeModal()" tabindex="0">
+            <img src="assets/icons/close.svg" id="close" alt="Close contact form" aria-label="Close contact form" onclick="closeModal()" tabindex="0">
           </div>
         </header>
 
@@ -69,39 +68,18 @@
 		</div>
 
     <div class="lightbox" id="myLightBox" aria-hidden="true" role="dialog" tabindex="0">
-      <div id="closeWidth"><button id="closeLgth" onclick="closeLightbox()" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button></div>
+      <div id="closeWidth"><button id="closeLgth" onclick="closeLightbox()" aria-label="Close dialog"><span class="fa-solid fa-xmark"></span></button></div>
       <div class="arrows">
-        <div class="arrowLeft"><span class="fa-solid fa-angle-left" id="previous" onclick="browseSlide(-1)" aria-label="Previous image" tabindex="0"></span></div>
-        <div class="arrowRight"><span class="fa-solid fa-angle-right" id="next" onclick="browseSlide(1)" aria-label="Next image" tabindex="0"></span></div>
+        <div class="arrowLeft"><span class="fa-solid fa-angle-left" id="previous" onclick="browseSlide(-1)" tabindex="0"></span></div>
+        <div class="arrowRight"><span class="fa-solid fa-angle-right" id="next" onclick="browseSlide(1)" tabindex="0"></span></div>
       </div>
-      
-
-      <div class="containerLgth">
-        
-
-      </div>
+      <div class="containerLgth"></div>
     </div>
     
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightBox.js"></script>
-    
-    
-  </body>
   </body>
 </html>
