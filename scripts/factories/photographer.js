@@ -1,9 +1,11 @@
+///Fonction qui permet de gérer l'affichage des photographes avec leurs caractéristiques du fichier JSON 
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
     const url = `photographer.html?id=${id}`;
    
+    //Fonction qui créer la structure d'un photographe avec ses caractéristiques
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
@@ -15,7 +17,6 @@ function photographerFactory(data) {
 
         lien.setAttribute("href", url);
         lien.setAttribute("aria-label", name);
-
         lien.setAttribute("tabindex", "0");
     
         const h2 = document.createElement( 'h2' );
@@ -38,10 +39,10 @@ function photographerFactory(data) {
         article.appendChild(p);
         article.appendChild(h4);
         
-        
         return (article);
     }
 
+    //Fonction qui créer la structure d'un photographe avec ses caractéristiques pour la page photographer.html
     function getProfilPhotographer() {
         const divContain = document.createElement( 'div' );
         const divInfo = document.createElement( 'div' );
@@ -52,11 +53,10 @@ function photographerFactory(data) {
         const divPrice = document.createElement('div');
         const prix = document.createElement('p');
         const divImg = document.createElement('div');
-
         const buttonContact = document.querySelector( '.contactButton' );
-
         const divPhoto = document.createElement( 'div' );
         const imgPhotograph = document.createElement( 'img' );
+
         imgPhotograph.setAttribute("src", picture);
         imgPhotograph.setAttribute("alt", name);
 
@@ -83,6 +83,7 @@ function photographerFactory(data) {
         return (divContain);
     }
 
+    //Fonction qui permet d'afficher le nom du photographe sélectionné dans la modale de contact
     function modalNamePhotograph(){
         const namePhotograph = document.createElement('p');
         const closeModal = document.querySelector('#close');
@@ -93,9 +94,6 @@ function photographerFactory(data) {
         const headerModal = document.querySelector(".header_modal");
         const modalAria = document.querySelector("#contact_modal");
         const titleModal = document.querySelector(".contactezMoi");
-
-
-
 
         modalAria.setAttribute("aria-labelledby", name);
         titleModal.setAttribute("id", name);

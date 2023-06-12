@@ -1,22 +1,18 @@
-
+    //Fonction asynchrone utilisant la méthode fecth() pour récupérer les informations du fichier JSON grâce à l'ID du photographe
     async function getPhotograph() {  
         const id = new URL(location.href).searchParams.get("id");
-       
         const result = await fetch("data/photographers.json");
-        
         const data = await result.json();
-       
         const photograph = data.photographers.find(item => item.id == id);
         const medias = data.media.filter(item => item.photographerId == id);
         
-
         return{
             photograph,
             medias
-        }
-        
+        }  
     }
 
+    //Fonction asynchrone permettant d'afficher le photographe correspondant avec ses caractéristiques (via l'id sélectionné)
     async function displayPhotograph(photographers) {
         const photographSection = document.querySelector(".photograph-header"); 
         const photographerModel = photographerFactory(photographers.photograph);
@@ -25,9 +21,9 @@
         photographSection.appendChild(photographProfil); 
     }
 
+    //Fonction asynchrone permettant d'afficher les médias (images/vidéos) du photographe sélectionné avec leurs caractéristiques
     async function displayMedia(medias) {
         const mediaSection = document.querySelector(".photograph_media");
-
         const mediaSectionLgth = document.querySelector(".containerLgth");
 
         Array.from(medias.medias).forEach((media) => {
@@ -49,6 +45,7 @@
         });
     }
 
+    //Fonction asynchrone permettant d'afficher le nom du photographe dans la modale de contact
     async function displayNameModal(photographer) {
         const photographNameSection = document.querySelector("#contact_modal");
         const photographModel = photographerFactory(photographer.photograph);
@@ -57,6 +54,7 @@
         photographNameSection.appendChild(user); 
     }
 
+    //Fonction asynchrone permettant d'afficher le total des likes dans l'encart
     async function likeCount(likes){
         const displaySumLike = document.querySelector('.encart');
         const div = document.createElement('div');
@@ -84,11 +82,10 @@
         displaySumLike.appendChild(div)
     }
 
-
+    //Fonction asynchrone permettant d'effectuer le trie des médias selon la popularité, les dates, ou encore l'ordre alphabétique
     async function trieMedia(trier){
         const select = document.querySelector("select");
         const options = document.querySelectorAll(".options");
-        
         
         select.addEventListener("change", function(){
             const mediaContain = document.querySelector(".photograph_media");
@@ -111,11 +108,11 @@
         })
     }
        
+    //Fonction asynchrone permettant l'initialisation des fonctions
     async function initPhotograph() {
         const photographers = await getPhotograph();
         const medias = await getPhotograph();
         const photographer = await getPhotograph();
-
         const likes = await getPhotograph();
         const trier = await getPhotograph();
         
@@ -123,8 +120,7 @@
         displayMedia(medias);
         displayNameModal(photographer);
         likeCount(likes);
-        trieMedia(trier);
-       
+        trieMedia(trier); 
     }
     
     initPhotograph();

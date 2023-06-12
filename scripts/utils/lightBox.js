@@ -1,6 +1,7 @@
 const main = document.querySelector('#main');
 const lgthContainer = document.querySelector("#myLightBox");
 
+//Fonction permettant d'ouvrir la lightbox
 function openLightbox(){
     document.getElementById("myLightBox").style.display = "block"; 
     main.setAttribute('aria-hidden', 'true');
@@ -8,33 +9,33 @@ function openLightbox(){
     lgthContainer.focus();
 }
 
+//Fonction permettant de fermer la lightbox
 function closeLightbox(){
     document.getElementById("myLightBox").style.display = "none";
     main.setAttribute('aria-hidden', 'false');
     lgthContainer.setAttribute('aria-hidden', 'true');
 }
 
-
-
 let indexOfSlide = 0;
 const slides = document.getElementsByClassName("slideMedia");
 
-
+//Fonction permettant de contrôler les médias suivants ou précédants lorsque l'on appuie sur les flèches gauche ou droite de la lightbox
 function browseSlide(n){
     displaySlides(indexOfSlide += n);
 }
 
+//Fonction permettant de contrôler l'index du média
 function currentSlide(id){
     const mediaIndex = Array.from(slides).findIndex(slide => {
         return slide.dataset.mediaId == id;
     })
-    console.log(mediaIndex);
     displaySlides(mediaIndex);
 }
 
+//Fonction permettant de gérer l'affichage des slides
 function displaySlides(mediaIndex) {
-
     indexOfSlide = mediaIndex;
+
     if (mediaIndex > slides.length - 1) {
         indexOfSlide = 0;
     }
@@ -49,6 +50,7 @@ function displaySlides(mediaIndex) {
     }
 }
 
+//Evènement qui permet de faire défiler la lightbox selon les touches fléchées du clavier (gauche et droite)
 lgthContainer.addEventListener("keydown", e =>{ 
     if(e.keyCode == '37'){
         browseSlide(-1);
@@ -57,5 +59,3 @@ lgthContainer.addEventListener("keydown", e =>{
         browseSlide(1);
     }
 })
-
-
