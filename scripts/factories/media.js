@@ -35,9 +35,34 @@ function mediaFactory (data) {
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
 
-        //Lorsque l'on clique sur le bouton j'aime il s'incrémente 1 fois
+        //Lorsque l'on clique sur le bouton j'aime il s'incrémente 1 fois et s'ajoute dans le total des likes
         buttonLike.addEventListener("click", () =>{
-            document.querySelector(".numberLike_"+id).textContent = likes + 1;
+            const sessionStorageLiked = JSON.parse(window.sessionStorage.getItem("liked"));
+
+            //Récupère l'index de l'élément
+            const findIndexOfElement = sessionStorageLiked.findIndex(item => {
+                return item === id;
+            });
+
+            //Récupérer sous forme d'entier le nombre de like d'un média, ainsi que le total des likes du photographe
+            const actualTotalLikeOnMedia = parseInt(document.querySelector(".numberLike_"+id).textContent);
+            const actualTotalLikeOnPhotographer = parseInt(document.querySelector(".totalLikes").textContent);
+
+            //Si l'élément n'existe pas dans le tableau de ce qui a déja été liké alors il est ajouté à la liste, puis la liste des likes est redéfinie
+            if (findIndexOfElement === -1) {
+                sessionStorageLiked.push(id);
+                window.sessionStorage.setItem("liked", JSON.stringify(sessionStorageLiked));
+                document.querySelector(".numberLike_"+id).textContent = actualTotalLikeOnMedia + 1; //Incrémente le nombre de like sur le média
+                document.querySelector(".totalLikes").textContent = actualTotalLikeOnPhotographer + 1; //Incrémente le nombre total des likes du photographe
+            }
+
+            //Sinon s'il existe retire l'élément du tableau des likes
+            else {
+                sessionStorageLiked.splice(findIndexOfElement, 1);
+                window.sessionStorage.setItem("liked", JSON.stringify(sessionStorageLiked));
+                document.querySelector(".numberLike_"+id).textContent = actualTotalLikeOnMedia - 1; //Décrémente le nombre de like sur le média
+                document.querySelector(".totalLikes").textContent = actualTotalLikeOnPhotographer - 1; //Décrémente le nombre total de like du photographe
+            }
         })
 
         tape.setAttribute("controls", "");
@@ -90,23 +115,48 @@ function mediaFactory (data) {
         buttonLike.setAttribute("type", "button");
         buttonLike.setAttribute("class", "buttonLike");
 
-        //Lorsque l'on clique sur le bouton j'aime il s'incrémente 1 fois
+        //Lorsque l'on clique sur le bouton j'aime il s'incrémente 1 fois et s'ajoute dans le total des likes
         buttonLike.addEventListener("click", () =>{
-            document.querySelector(".numberLike_"+id).textContent = likes + 1;
+            const sessionStorageLiked = JSON.parse(window.sessionStorage.getItem("liked"));
+
+            //Récupère l'index de l'élément
+            const findIndexOfElement = sessionStorageLiked.findIndex(item => {
+                return item === id;
+            });
+
+            //Récupérer sous forme d'entier le nombre de like d'un média, ainsi que le total des likes du photographe
+            const actualTotalLikeOnMedia = parseInt(document.querySelector(".numberLike_"+id).textContent);
+            const actualTotalLikeOnPhotographer = parseInt(document.querySelector(".totalLikes").textContent);
+
+            //Si l'élément n'existe pas dans le tableau de ce qui a déja été liké alors il est ajouté à la liste, puis la liste des likes est redéfinie
+            if (findIndexOfElement === -1) {
+                sessionStorageLiked.push(id);
+                window.sessionStorage.setItem("liked", JSON.stringify(sessionStorageLiked));
+                document.querySelector(".numberLike_"+id).textContent = actualTotalLikeOnMedia + 1; //Incrémente le nombre de like sur le média
+                document.querySelector(".totalLikes").textContent = actualTotalLikeOnPhotographer + 1; //Incrémente le nombre total des likes du photographe
+            }
+
+            //Sinon s'il existe retire l'élément du tableau des likes
+            else {
+                sessionStorageLiked.splice(findIndexOfElement, 1);
+                window.sessionStorage.setItem("liked", JSON.stringify(sessionStorageLiked));
+                document.querySelector(".numberLike_"+id).textContent = actualTotalLikeOnMedia - 1; //Décrémente le nombre de like sur le média
+                document.querySelector(".totalLikes").textContent = actualTotalLikeOnPhotographer - 1; //Décrémente le nombre total de like du photographe
+            }
         })
-        
+
         img.setAttribute("src", picture);
         img.setAttribute("alt", title);
         img.setAttribute("tabindex", "0");
         img.setAttribute("class", "openLgth");
 
-        //Lorsque l'on clique (avec la souris) sur une image on appelle les fonctions permettants d'afficher la lightbox
+        //Lorsque l'on clique (avec la souris) sur une image on appelle les fonctions permettant d'afficher la lightbox
         img.addEventListener("click", () => {
             currentSlide(id);
             openLightbox();
         })
 
-        //Lorsque l'on clique sur la touche entrée du clavier on appelle les fonctions permettants d'afficher la lightbox
+        //Lorsque l'on clique sur la touche entrée du clavier on appelle les fonctions permettant d'afficher la lightbox
         img.addEventListener("keydown", e =>{
             if(e.key == "Enter"){
                 currentSlide(id);

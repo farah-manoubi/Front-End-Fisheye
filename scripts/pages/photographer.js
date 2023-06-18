@@ -64,19 +64,8 @@
         sumOfLike.setAttribute("class", "totalLikes");
         i.setAttribute("class", "fa-solid fa-heart");
 
-        //const idNumberLikes = likes.medias.map(item => item.id);
-        //const getLike = document.querySelector(".numberLike_" +idNumberLikes);
-               
-        const boutton = document.querySelectorAll(".buttonLike");
-        
         var total = likes.medias.map(item => item.likes).reduce((prev, curr) => prev + curr, 0);
         sumOfLike.textContent = total;
-
-        Array.from(boutton).forEach(btn =>{
-            btn.addEventListener("click", ()=>{
-                sumOfLike.textContent = total++; 
-            })
-        })
 
         div.append(sumOfLike, i);
         displaySumLike.appendChild(div)
@@ -115,6 +104,7 @@
         const photographer = await getPhotograph();
         const likes = await getPhotograph();
         const trier = await getPhotograph();
+        window.sessionStorage.setItem('liked', JSON.stringify([]));
         
         displayPhotograph(photographers);
         displayMedia(medias);
