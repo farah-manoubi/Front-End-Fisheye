@@ -73,27 +73,26 @@
 
     //Fonction asynchrone permettant d'effectuer le trie des médias selon la popularité, les dates, ou encore l'ordre alphabétique
     async function trieMedia(trier){
-        const select = document.querySelector("select");
         const options = document.querySelectorAll(".options");
         
-        select.addEventListener("change", function(){
-            const mediaContain = document.querySelector(".photograph_media");
-            mediaContain.innerHTML = ""; 
-            Array.from(options).forEach(option => {
-                
-                if(this.selectedIndex == 1 && option.dataset.value == "popularité"){
-                        trier.medias.sort((a, b) => b.likes - a.likes);
-                        displayMedia(trier); 
+        Array.from(options).forEach(option =>{
+            option.addEventListener("click", () =>{
+                const mediaContain = document.querySelector(".photograph_media");
+                mediaContain.innerHTML = ""; 
+
+                if(option.dataset.value == "popularité"){
+                    trier.medias.sort((a, b) => b.likes - a.likes);
+                    displayMedia(trier); 
                 }
-                if(this.selectedIndex == 2 && option.dataset.value == "date"){  
+                if(option.dataset.value == "date"){  
                     trier.medias.sort((a,b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
                     displayMedia(trier);
                 }
-                if(this.selectedIndex == 3 && option.dataset.value == "titre"){
+                if(option.dataset.value == "titre"){
                     trier.medias.sort((a,b)=> a.title.localeCompare(b.title));
                     displayMedia(trier);
                 }     
-            })   
+            })
         })
     }
        

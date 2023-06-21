@@ -184,7 +184,7 @@ form input {
     width: 90%;
     gap: 30px;
     padding: 0;
-    margin: 100px 0 0 100px;
+    margin: 85px 0 0 100px;
   
 }
 
@@ -423,17 +423,71 @@ textarea{
 .sort{
     margin-left: 100px;
     margin-top: 40px;
+    margin-bottom: 10px;
+    width: 40%;
+    display: flex;
 }
-
-.sort label,
-.sort option{
+.trieTexte p{
+    font-style: normal;
     font-weight: 700;
     font-size: 18px;
+    line-height: 23px;
+    color: #000000;
 }
-
-.sort select{
-    width: 170px;
-    margin-left: 10px;
+.menuDeroulant{
+    margin-top: 19px;
+    margin-left: 20px;
+}
+.menuDeroulant span{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: right;
+    color: #FFFFFF;
+}
+.menuDeroulant button{
+    width: 150px;
+    border-style: none;
+    background: #911C1C;
+}
+.btnMenu{
+    border-radius: 5px;
+   
+}
+.btnMenu #menuTrie{
+    margin-right: 20px;
+}
+.btnMenu .fa-solidfa-chevron-up{
+    color: white;
+}
+#closeMenu{
+    width: 60px;
+    height: 47px;
+    margin-top: 10px;
+    margin-left: 28px;
+    margin-right: 25px;
+    color: #FFFFFF;
+}
+#listeSort li{
+    width: 150px;
+    border-bottom: solid #FFFFFF 1px;
+}
+.menuDeroulant ul li button{
+    height: 57px;
+    text-align: left;
+}
+#listeSort{
+    list-style: none;
+    width: 175px;
+    height: 172px;
+    margin-top: 5px;
+    background: #911C1C;
+    border-radius: 5px;
+    padding-left: 18px;
+    display: none;
+}
+#first{
+    display: flex;
 }
 
 @media (max-width: 1041px){

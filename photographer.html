@@ -16,17 +16,19 @@
       <div class="photograph-header">
         <div class="contactButton"><button type="button" aria-label="Contact Me" class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
       </div>
-
-      <div class="sort">
-          <label for="sortMedia">Trier par</label>
-          <select name="sortMedia" id="sortMedia">
-            <option disabled selected value>-----</option>
-            <option class="options" data-value="popularité">Popularité</option>
-            <option class="options" data-value="date">Date</option>
-            <option class="options" data-value="titre">Titre</option>
-          </select>
+        <div class="sort">
+          <div class="trieTexte"><p>Trier par :</p></div>
+          <div role="menu" class="menuDeroulant">
+          <button type="button" aria-labelledby="menuTrie" aria-expanded="false" aria-haspopup="listbox" aria-controls="listeSort" class="btnMenu" onclick="displayMenu()" aria-hidden="false"><span id="menuTrie">Popularité</span><span class="fa-solid fa-chevron-down"></span></button>
+              <ul id="listeSort" aria-labelledby="menuTrie" aria-hidden="true">
+                <li id="first"><button type="button" class="options" aria-labelledby="triePop" data-value="popularité"><span id="triePop">Popularité</span></button><button id="closeMenu" onclick="closeMenu()"><span class="fa-solid fa-chevron-up"></span></button></li>
+                <li><button type="button" class="options" aria-labelledby="trieDate" data-value="date"><span id="trieDate">Date</span></button></li>
+                <li><button type="button" class="options" aria-labelledby="trieTitre" data-value="titre"><span id="trieTitre">Titre</span></button></li>
+              </ul>
+          </div>
         </div>
       <div class="photograph_media"></div>
+      
     </main>
 
     <div id="contact_modal" aria-hidden="true" role="dialog">
@@ -81,5 +83,6 @@
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightBox.js"></script>
+    <script src="scripts/utils/menuDeroulant.js"></script>
   </body>
 </html>

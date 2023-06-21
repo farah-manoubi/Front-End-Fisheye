@@ -167,7 +167,7 @@ function mediaFactory (data) {
         buttonLike.appendChild(i);
         divLikes.append(spanForLike, buttonLike);
         index.appendChild(img);
-        article.append(index, div);
+        article.append(index, div); 
         div.append(h2, divLikes);
         
         return(article);
